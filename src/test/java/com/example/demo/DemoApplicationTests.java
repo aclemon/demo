@@ -3,6 +3,7 @@ package com.example.demo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.Console;
 import java.util.UUID;
 
 
@@ -21,6 +22,7 @@ class DemoApplicationTests {
         int a = 2;
         if (a==2){
             System.out.println("UUID4=>"+ UUID.randomUUID().toString().replaceAll("\\-", ""));
+            System.out.println("123");
         }
 
 
