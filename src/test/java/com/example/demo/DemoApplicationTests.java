@@ -22,7 +22,7 @@ class DemoApplicationTests {
         int a = 2;
         if (a==2){
             System.out.println("UUID4=>"+ UUID.randomUUID().toString().replaceAll("\\-", ""));
-            System.out.println("123");
+            System.out.println("123123");
         }
 
 
