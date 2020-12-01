@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 
-@RestController
+@Controller
 public class TestA {
+
 }
