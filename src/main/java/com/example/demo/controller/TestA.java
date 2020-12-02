@@ -9,6 +9,8 @@ public class TestA {
     public static final String TEST_MAIN = "TEST_MAIN";
 
     public static void main(String[] args) {
+        String a = "testA";
+        String b = "testA";
 
     }
 
