@@ -12,6 +12,7 @@ public class TestA {
         String a = "testA";
         String b = "testA";
         String c = "testA";
+        String e = "testA";
 
 
     }
