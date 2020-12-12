@@ -8,6 +8,10 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
 configurations {
     developmentOnly
     runtimeClasspath {
@@ -29,14 +33,26 @@ ext {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
-    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
-    compileOnly 'org.projectlombok:lombok'
+//    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+//    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+//    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
+
+    compile group: 'com.alibaba.boot', name: 'nacos-config-spring-boot-starter', version: '0.2.7'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.11.RELEASE'
+
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+    compile 'cn.hutool:hutool-all:5.5.2'
+    compile 'com.alibaba:fastjson:1.2.73'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.12.0'
+
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }

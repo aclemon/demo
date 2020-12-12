@@ -1,8 +1,11 @@
-package com.example.demo;
+package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author w00990
+ */
 @SpringBootApplication
 public class DemoApplication {
 

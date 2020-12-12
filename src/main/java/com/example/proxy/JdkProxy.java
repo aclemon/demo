@@ -1,7 +1,7 @@
-package com.example.demo.proxy;
+package com.example.proxy;
 
-import com.example.demo.service.UserManager;
-import com.example.demo.service.impl.UserManagerImpl;
+import com.example.service.UserManager;
+import com.example.service.impl.UserManagerImpl;
 import org.springframework.cglib.proxy.InvocationHandler;
 import org.springframework.cglib.proxy.Proxy;
 

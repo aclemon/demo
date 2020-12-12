@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.service;
 
 //用户管理接口
 public interface UserManager {

@@ -1,6 +1,6 @@
-package com.example.demo.service.impl;
+package com.example.service.impl;
 
-import com.example.demo.service.UserManager;
+import com.example.service.UserManager;
 
 public class UserManagerImpl implements UserManager {
     //重写新增用户方法
