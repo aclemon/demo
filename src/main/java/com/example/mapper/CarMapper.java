@@ -17,6 +17,6 @@ public interface CarMapper {
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
 
 
-    @Mapping(source = "numberOfSeats", target = "seatCount")
+    @Mapping(source = "numberOfSeats", target = "seatCount", numberFormat = "#.##E0")
     CarDto carToCarDto(Car car);
 }

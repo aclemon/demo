@@ -8,6 +8,8 @@ import com.example.mapper.CarMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.util.UUID;
 
 
@@ -25,27 +27,24 @@ class DemoApplicationTests {
         System.out.println("UUID2=>" + UUID.randomUUID().toString().replaceAll("\\-", ""));
         System.out.println("UUID3=>" + UUID.randomUUID().toString().replaceAll("\\-", ""));
         int a = 2;
-        if (a == 2) {
-            System.out.println("UUID4=>" + UUID.randomUUID().toString().replaceAll("\\-", ""));
-            System.out.println("123123");
-        }
+        System.out.println("UUID4=>" + UUID.randomUUID().toString().replaceAll("\\-", ""));
+        System.out.println("123123");
     }
 
     @Test
-    public void shouldMapCarToDto() {
+    public void shouldMapCarToDto() throws ParseException {
         //given
-        Car car = new Car("Morris", 5, ChannelPaymentEnum.ALI_PAY_APP);
+        Car car = new Car("Morris", "00.5464", ChannelPaymentEnum.ALI_PAY_APP);
+
+        Number parse = new DecimalFormat("#.00").parse(car.getNumberOfSeats()).doubleValue();
+
+        Console.log("DecimalFormat=>" + parse);
 
         //when
         CarDto carDto = CarMapper.INSTANCE.carToCarDto(car);
 
         Console.log("carDto=>" + carDto);
 
-        //then
-//        assertThat(carDto).isNotNull();
-//        assertThat(carDto.getMake()).isEqualTo("Morris");
-//        assertThat(carDto.getSeatCount()).isEqualTo(5);
-//        assertThat(carDto.getType()).isEqualTo("SEDAN");
     }
 
 }

@@ -78,7 +78,7 @@ public class VerifyReceiptResp {
     private String environment;
     private Receipt receipt;
     private Integer status;
-    
+
 
     @NoArgsConstructor
     @AllArgsConstructor
@@ -159,8 +159,8 @@ public class VerifyReceiptResp {
             @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss[ VV]")
             private ZonedDateTime purchaseDate;
             @JsonProperty("purchase_date_ms")
-            @JsonFormat(shape = JsonFormat.Shape.NUMBER)
-            private Date purchaseDateMs;
+//            @JsonFormat(shape = JsonFormat.Shape.NUMBER)
+            private String purchaseDateMs;
             @JsonProperty("purchase_date_pst")
             @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss[ VV]")
             private ZonedDateTime purchaseDatePst;

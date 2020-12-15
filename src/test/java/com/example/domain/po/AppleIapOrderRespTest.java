@@ -12,6 +12,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.ZonedDateTimeSerializer;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -95,8 +96,8 @@ import java.time.format.DateTimeFormatter;
  */
 @SpringBootTest
 class AppleIapOrderRespTest {
-//    @Resource
-//    AppleIapMapper appleIapMapper;
+    @Resource
+    private AppleIapMapper appleIapMapper;
 
     @Test
     public void appleTest() throws JsonProcessingException {
@@ -180,7 +181,7 @@ class AppleIapOrderRespTest {
         VerifyReceiptResp serverNotifyRefundResp1 = mapper.readValue(appleJson, VerifyReceiptResp.class);
         Console.log("VerifyReceiptResp=>" + serverNotifyRefundResp1);
 
-        AppleIapOrderResp appleIapOrderResp = AppleIapMapper.INSTANCE.receiptToOrder(serverNotifyRefundResp1);
+        AppleIapOrderResp appleIapOrderResp = appleIapMapper.receiptToOrder(serverNotifyRefundResp1);
         Console.log("appleIapOrderResp=>" + appleIapOrderResp);
     }
 
