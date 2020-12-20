@@ -20,5 +20,7 @@ public class Car {
     private String make;
     private String numberOfSeats;
     private ChannelPaymentEnum type;
+
+
     //constructor, getters, setters etc.
 }
