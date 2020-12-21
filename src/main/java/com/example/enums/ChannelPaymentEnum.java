@@ -4,6 +4,9 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @author w00990
  */
@@ -19,15 +22,16 @@ public enum ChannelPaymentEnum {
      * + Apple IAP支付
      */
 
-    BANK_CARD_PAY("bankCardPay",1,"银行卡支付"),
-    WE_CHAT_PUBLIC("weChatPublic",2,"微信公众号支付"),
-    WE_CHAT_APP("weChatApp",4,"微信APP支付"),
-    ALI_PAY_APP("aliPayApp",8,"支付宝APP支付"),
-    ALI_PAY_H5("aliPayH5",16,"支付宝H5"),
-    APPLE_IAP("AppleIap",32,"Apple IAP支付"),;
+    BANK_CARD_PAY("bankCardPay", 1, "银行卡支付"),
+    WE_CHAT_JS("weChatJS", 2, "微信公众号支付"),
+    WE_CHAT_APP("weChatApp", 4, "微信APP支付"),
+    ALI_PAY_APP("aliPayApp", 8, "支付宝APP支付"),
+    ALI_PAY_H5("aliPayH5", 16, "支付宝H5"),
+    APPLE_IAP("AppleIap", 32, "Apple IAP支付"),
+    ;
 
     public String name;
-    public int    bit;
+    public int bit;
     public String desc;
 
     /**
@@ -36,13 +40,22 @@ public enum ChannelPaymentEnum {
      * @param bit the bit
      * @return the channel product
      */
-    public static ChannelPaymentEnum valueOf(int bit){
+    public static ChannelPaymentEnum valueOf(int bit) {
         for (ChannelPaymentEnum channelPaymentEnum : ChannelPaymentEnum.values()) {
-            if (channelPaymentEnum.getBit() == bit){
+            if (channelPaymentEnum.getBit() == bit) {
                 return channelPaymentEnum;
             }
         }
         return null;
+    }
 
+    public static List<ChannelPaymentEnum> parseOf(int bit) {
+        LinkedList<ChannelPaymentEnum> channelPaymentEnums = new LinkedList<>();
+        for (ChannelPaymentEnum channelPaymentEnum : ChannelPaymentEnum.values()) {
+            if ((channelPaymentEnum.getBit() & bit) == channelPaymentEnum.getBit()) {
+                channelPaymentEnums.add(channelPaymentEnum);
+            }
+        }
+        return channelPaymentEnums;
     }
 }

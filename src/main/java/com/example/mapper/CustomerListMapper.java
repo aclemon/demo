@@ -5,8 +5,10 @@ import com.example.domain.po.Customer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
+import org.mapstruct.Named;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @Author: w00990
@@ -16,16 +18,21 @@ import java.util.List;
 public interface CustomerListMapper {
 
     @Mappings({
-            @Mapping(source = "name", target = "customerName"),
+            @Mapping(source = "name", target = "customerName", qualifiedByName = "addStrMapping"),
     })
     CustomerDto customersToCustomer(Customer customer);
 
+
+    @Named("addStrMapping")
+    default String addStr(String name) {
+        return name + "123";
+    }
 
     /**
      * @param customers
      * @return
      */
-    List<CustomerDto> customersToCustomerDtos(List<Customer> customers);
+    Set<CustomerDto> customersToCustomerDtos(List<Customer> customers);
 
 }
 

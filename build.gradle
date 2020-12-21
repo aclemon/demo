@@ -43,6 +43,10 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.11.RELEASE'
 
+//    // https://mvnrepository.com/artifact/io.lettuce/lettuce-core
+//    compile group: 'io.lettuce', name: 'lettuce-core', version: '6.0.1.RELEASE'
+//    // https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter
+//    compile group: 'org.redisson', name: 'redisson-spring-boot-starter', version: '3.14.0'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
@@ -52,6 +56,7 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
     compileOnly 'org.projectlombok:lombok:1.18.10'
+
 //    https://mvnrepository.com/artifact/org.projectlombok/lombok
 //    providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
 

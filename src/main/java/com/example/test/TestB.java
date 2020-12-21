@@ -23,19 +23,20 @@ public class TestB {
         list.add("aaa2");
         String message = list.stream()
                 .filter(record -> record.startsWith("aaa"))
-                .map(record ->{
-                    return "<"+record+">";
+                .map(record -> {
+                    return "<" + record + ">";
                 })
                 .collect(Collectors.joining(","));//返回一个String以,分隔
         //.collect(Collectors.toList());//返回一个List<String>
         System.out.println(message);
 
-        Console.log("Cc=>"+ ChannelPaymentEnum.ALI_PAY_APP.name);
-        Console.log("Cc=>"+ChannelPaymentEnum.ALI_PAY_APP.bit);
-        Console.log("Cc=>"+ChannelPaymentEnum.ALI_PAY_APP.desc);
+        Console.log("Cc=>" + ChannelPaymentEnum.ALI_PAY_APP.name);
+        Console.log("Cc=>" + ChannelPaymentEnum.ALI_PAY_APP.bit);
+        Console.log("Cc=>" + ChannelPaymentEnum.ALI_PAY_APP.desc);
 
 
-        Console.log("Cc=>"+ Objects.requireNonNull(ChannelPaymentEnum.valueOf(3)).getName());
+        Console.log("Cc=>" + Objects.requireNonNull(ChannelPaymentEnum.valueOf(3)).getName());
+
 
     }
 }
