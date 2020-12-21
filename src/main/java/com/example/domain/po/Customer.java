@@ -21,6 +21,7 @@ public class Customer {
     private Boolean isDisable;
     private String email;
     private Date birthday;
+    private Integer code;
 
 
     public Long getId() {

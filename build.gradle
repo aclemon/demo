@@ -12,6 +12,10 @@ sourceCompatibility = '1.8'
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
+
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+
 configurations {
     developmentOnly
     runtimeClasspath {
@@ -23,6 +27,9 @@ configurations {
 }
 
 repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/spring/' }
+    mavenLocal()
     mavenCentral()
 }
 
@@ -32,11 +39,9 @@ ext {
 }
 
 dependencies {
+
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-//    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
-//    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-//    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
-//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
+
 
     compile group: 'com.alibaba.boot', name: 'nacos-config-spring-boot-starter', version: '0.2.7'
 
@@ -68,6 +73,11 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
+
+    //    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+//    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+//    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
+//    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
 }
 
 dependencyManagement {

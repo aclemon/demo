@@ -20,7 +20,8 @@ public class CustomerDto {
     private Boolean disable;
     private String email;
     private Date birthday;
-    private String code;
+    private Long status;
+
 
     public Long getId() {
         return id;

@@ -30,10 +30,10 @@ class CustomerDtoTest {
 
     @Test
     public void customersToCustomerDtosTest() {
-        Customer customer1 = new Customer(1L, "herion1", true, null, new Date());
-        Customer customer2 = new Customer(2L, "herion2", true, null, new Date());
-        Customer customer3 = new Customer(3L, "herion3", true, null, new Date());
-        Customer customer4 = new Customer(3L, "herion3", true, null, new Date());
+        Customer customer1 = new Customer(1L, "herion1", true, null, new Date(), 1);
+        Customer customer2 = new Customer(2L, "herion2", true, null, new Date(), 2);
+        Customer customer3 = new Customer(3L, "herion3", true, null, new Date(), 3);
+        Customer customer4 = new Customer(3L, "herion3", true, null, new Date(), 4);
         customer1.toString();
         List<Customer> list = new ArrayList<>();
         list.add(customer1);
