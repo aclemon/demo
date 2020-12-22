@@ -27,6 +27,7 @@ public class TestG {
 //            Console.log("record=>" + record.getEmail());
 //        });
 
+        Console.log("asdf=>");
         Integer a = new Integer(300);
         Integer b = new Integer(300);
         Console.log(a.equals(b));
