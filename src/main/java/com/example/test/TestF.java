@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
  */
 public class TestF {
     public static void main(String[] args) {
-        Console.log("我爱你=>");
         List<ChannelPaymentEnum> channelPaymentEnums = ChannelPaymentEnum.parseOf(7);
         Console.log("channelPaymentEnums=>" + channelPaymentEnums);
         List<Integer> integers = new ArrayList<>();
@@ -31,19 +30,11 @@ public class TestF {
                 .build();
         Optional<Car> car1 = Optional.of(build);
         Console.log("car=>" + car1.get().getMake());
-
         Optional<String> username = Optional
-                .ofNullable(build)
-                .map(user -> user.getMake())
-                .map(make -> make.toLowerCase());
-
-        Optional<String> username1 = Optional
-                .ofNullable(build)
-                .flatMap(car -> Optional.of(car.getMake()))
-                .flatMap(name -> Optional.of(name.toLowerCase()));
-
+                .of(build)
+                .map(Car::getMake)
+                .map(String::toLowerCase);
         Console.log("username=>" + username);
-        Console.log("username1=>" + username1);
 
 
     }

@@ -1,7 +1,6 @@
 package com.example.domain.dto;
 
 import cn.hutool.core.lang.Console;
-import com.example.domain.po.Customer;
 import com.example.mapper.CustomerListMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +10,7 @@ import javax.annotation.Resource;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.*;
+import java.util.Locale;
 
 /**
  * @Author: w00990
@@ -30,21 +29,21 @@ class CustomerDtoTest {
 
     @Test
     public void customersToCustomerDtosTest() {
-        Customer customer1 = new Customer(1L, "herion1", true, null, new Date(), 1);
-        Customer customer2 = new Customer(2L, "herion2", true, null, new Date(), 2);
-        Customer customer3 = new Customer(3L, "herion3", true, null, new Date(), 3);
-        Customer customer4 = new Customer(3L, "herion3", true, null, new Date(), 4);
-        customer1.toString();
-        List<Customer> list = new ArrayList<>();
-        list.add(customer1);
-        list.add(customer1);
-        list.add(customer2);
-        list.add(customer3);
-        list.add(customer4);
-        Set<CustomerDto> customerDtos = customerListMapper.customersToCustomerDtos(list);
-        customerDtos.forEach(customer -> {
-            System.out.println(customer.toString());
-        });
+//        Customer customer1 = new Customer(1L, "herion1", true, null, new Date(), 1);
+//        Customer customer2 = new Customer(2L, "herion2", true, null, new Date(), 2);
+//        Customer customer3 = new Customer(3L, "herion3", true, null, new Date(), 3);
+//        Customer customer4 = new Customer(3L, "herion3", true, null, new Date(), 4);
+//        customer1.toString();
+//        List<Customer> list = new ArrayList<>();
+//        list.add(customer1);
+//        list.add(customer1);
+//        list.add(customer2);
+//        list.add(customer3);
+//        list.add(customer4);
+//        Set<CustomerDto> customerDtos = customerListMapper.customersToCustomerDtos(list);
+//        customerDtos.forEach(customer -> {
+//            System.out.println(customer.toString());
+//        });
     }
 
     @Test
