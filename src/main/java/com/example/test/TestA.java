@@ -15,6 +15,7 @@ public class TestA {
 
     public static void main(String[] args) throws JsonProcessingException {
         Console.log("我爱你=>" + "testA");
+        Console.log("我爱你=>" + "Main");
         Console.log("=>" + BigDecimal.ONE);
         Console.log("asdf=>" + StrUtil.isBlank(null));
 
