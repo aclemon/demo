@@ -1,11 +1,14 @@
 package com.example.test;
 
+import cn.hutool.core.lang.Console;
+
 public class TestB {
     public static final String test = "TEST_B";
     public static final String TEST_AB = "TEST_AB";
     public static final String TEST_MAIN = "TEST_MAIN";
 
     public static void main(String[] args) {
+        Console.log("我爱你=>" + "testA");
 //        System.out.println("hello world");
 //        int a = 12;
 //        int b = 10;
