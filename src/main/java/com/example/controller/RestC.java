@@ -24,7 +24,7 @@ import javax.validation.constraints.NotBlank;
 @RequestMapping("/RestC/")
 @RequiredArgsConstructor
 public class RestC {
-  
+
 
     @GetMapping("login")
     public String login(@NotBlank String username, String password) {

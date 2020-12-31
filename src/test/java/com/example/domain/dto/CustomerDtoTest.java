@@ -1,6 +1,7 @@
 package com.example.domain.dto;
 
 import cn.hutool.core.lang.Console;
+import cn.hutool.core.util.StrUtil;
 import com.example.mapper.CustomerListMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
@@ -82,6 +83,11 @@ class CustomerDtoTest {
         if (mock) {
             Console.log("1232=>" + 13);
         }
+    }
+
+    @Test
+    public void test5() {
+        Console.log("asdf=>" + StrUtil.isBlank(null));
     }
 
 

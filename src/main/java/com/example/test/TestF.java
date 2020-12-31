@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
  */
 public class TestF {
     public static void main(String[] args) {
+        Console.log("王麻子=>");
         List<ChannelPaymentEnum> channelPaymentEnums = ChannelPaymentEnum.parseOf(7);
         Console.log("channelPaymentEnums=>" + channelPaymentEnums);
         List<Integer> integers = new ArrayList<>();

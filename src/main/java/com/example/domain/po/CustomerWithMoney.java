@@ -1,6 +1,7 @@
 package com.example.domain.po;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @Author: w00990
@@ -11,6 +12,7 @@ import lombok.*;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 public class CustomerWithMoney extends Customer {
     private Integer money;
 
