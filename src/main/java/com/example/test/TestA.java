@@ -1,10 +1,9 @@
 package com.example.test;
 
 import cn.hutool.core.lang.Console;
-import cn.hutool.core.util.StrUtil;
+import com.example.domain.dto.CarDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
-import java.math.BigDecimal;
+import com.google.common.collect.ImmutableList;
 
 
 public class TestA {
@@ -14,13 +13,25 @@ public class TestA {
 
 
     public static void main(String[] args) throws JsonProcessingException {
-        Console.log("我爱你=>" + "testA");
-        Console.log("我爱你=>" + "Main");
-        Console.log("=>" + BigDecimal.ONE);
-        Console.log("asdf=>" + StrUtil.isBlank(null));
 
-        double a = 5.2;
-        Console.log("a=>" + a);
+
+        CarDto customer = new CarDto();
+//        Console.log("=>" + customer.getCode().intValue());
+
+//        Integer integer = 5;
+//        Console.log("asd=>" + integer.equals(customer.getCode()));
+//        Console.log("asd=>" + customer.getCode().equals(integer));
+
+
+        String abs = "asdfa";
+        Console.log("=>" + ImmutableList.of(abs));
+
+
+//        Console.log("=>" + BigDecimal.ONE);
+//        Console.log("asdf=>" + StrUtil.isBlank(null));
+//
+//        double a = 5.2;
+//        Console.log("a=>" + a);
 
 //        String str = new String("张三");
 //        if ("张三".equals(str)) {

@@ -1,6 +1,7 @@
 package com.example.domain.dto;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @Author: w00990
@@ -9,12 +10,10 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Getter
-@Setter
-public class CustomerDto {
+@EqualsAndHashCode(callSuper = false)
+@ToString(callSuper = true)
+@SuperBuilder
+public class CustomerDto extends AbstractCustomerDto {
     private Long id;
     private String customerName;
-    private String customize;
-    private String codeTest;
 }

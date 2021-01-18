@@ -14,11 +14,13 @@ import java.util.Set;
  * @Author: w00990
  * @Date: 2020/12/14
  */
+
 @Mapper(componentModel = "spring")
 public interface CustomerListMapper {
 
     @Mappings({
             @Mapping(source = "name", target = "customerName", qualifiedByName = "addStrMapping"),
+            @Mapping(source = "phone", target = "handPhone"),
     })
     CustomerDto customersToCustomer(Customer customer);
 

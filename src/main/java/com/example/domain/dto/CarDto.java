@@ -13,6 +13,7 @@ public class CarDto {
 
     private String make;
     private int seatCount;
+    private Integer code;
     private String type;
 
     public String getMake() {

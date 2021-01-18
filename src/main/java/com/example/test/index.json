@@ -1,0 +1,10 @@
+{
+  "merchantCertPath": "/app/smy-pcs/jetty/profile/alipayH5-siwuyu/appCertPublicKey_2021002116696431.crt",
+  "closeOrderLevel": 14,
+  "appId": "2021002116696431",
+  "orderValidTime": 9,
+  "merchantPrivateKeyPath": "/app/smy-pcs/jetty/profile/alipayH5-siwuyu/smyfinancial.com_privatekey.txt",
+  "notifyUrl": "https://gateway.smyfinancial.com/b2b-front/callback/payment/notify/ALIPAY_UNIT_ORDER/2021002116696431",
+  "alipayCertPath": "/data/app/smy-pcs/jetty/profile/alipayH5-siwuyu/alipayCertPublicKey_RSA2.crt",
+  "alipayRootCertPath": "/app/smy-pcs/jetty/profile/alipayH5-siwuyu/alipayRootCert.crt"
+}
