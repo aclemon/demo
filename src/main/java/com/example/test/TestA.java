@@ -12,8 +12,14 @@ public class TestA {
     public static final String TEST_MAIN = "TEST_MAIN";
 
 
+    public static void aTest() {
+        System.out.println("aTest");
+    }
+
     public static void main(String[] args) throws JsonProcessingException {
 
+
+        int a = 100;
 
         CarDto customer = new CarDto();
 //        Console.log("=>" + customer.getCode().intValue());

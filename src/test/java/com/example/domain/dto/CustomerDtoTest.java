@@ -7,6 +7,7 @@ import com.example.mapper.CustomerListMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.annotation.Resource;
 import java.text.DecimalFormat;
@@ -28,6 +29,25 @@ class CustomerDtoTest {
      */
     @Value("${AppleIap.mock.flag:true}")
     private boolean mock;
+
+
+    @Resource
+    StringRedisTemplate stringRedisTemplate;
+
+
+    @Test
+    public void testLettuce() {
+
+    }
+
+    @Test
+    public void testRedis() {
+        stringRedisTemplate.opsForHash().put("redis_key", "map1", "我是谁");
+        stringRedisTemplate.opsForHash().put("redis_key", "no1", "map2");
+        Console.log("redis=>" + stringRedisTemplate.opsForHash().get("redis_key", "map1"));
+        Console.log("redis=>" + stringRedisTemplate.opsForHash().get("redis_key", "no"));
+    }
+
 
     @Test
     public void customersToCustomerDtosTest() {
