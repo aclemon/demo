@@ -8,7 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
@@ -43,9 +42,11 @@ public class ScheduleSilentSignModel {
     /**
      * 查询次数
      */
-    @NotBlank
     @JsonProperty("exe_size")
     private Integer exeSize;
+
+    @JsonProperty("exe_page")
+    private Integer exePage;
     @JsonProperty("merchant_id")
     public String merchantId;
     @JsonProperty("channel_id")

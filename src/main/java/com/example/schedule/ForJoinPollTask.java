@@ -15,6 +15,72 @@ package com.example.schedule;
  * Package Name:work1201.basic
  * Date:2017年12月4日下午5:41:46
  * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
+ * <p>
+ * Project Name:Spring0725
+ * File Name:ForJoinPollTask.java
+ * Package Name:work1201.basic
+ * Date:2017年12月4日下午5:41:46
+ * Copyright (c) 2017, 深圳金融电子结算中心 All Rights Reserved.
  */
 /**
  * Project Name:Spring0725
@@ -25,10 +91,14 @@ package com.example.schedule;
  *
  */
 
+import cn.hutool.core.lang.Console;
+import lombok.SneakyThrows;
+
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.Future;
 import java.util.concurrent.RecursiveTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * ClassName:ForJoinPollTask <br/>
@@ -56,6 +126,14 @@ public class ForJoinPollTask {
 //        创建一个通用池，这个是jdk1.8提供的功能
         ForkJoinPool pool = ForkJoinPool.commonPool();
         Future<Integer> future = pool.submit(task); //提交分解的SumTask 任务
+        Console.log("sssss=>");
+        System.out.println("多线程执行结果：" + future.get());
+        boolean b = pool.awaitTermination(3, TimeUnit.SECONDS);
+        boolean terminated = pool.isTerminated();
+        boolean shutdown = pool.isShutdown();
+        Console.log("shu=>" + shutdown);
+
+        Console.log("terminated=>" + terminated);
         System.out.println("多线程执行结果：" + future.get());
         pool.shutdown(); //关闭线程池
 
@@ -96,6 +174,7 @@ class SumTask extends RecursiveTask<Integer> {
     }
 
 
+    @SneakyThrows
     @Override
     protected Integer compute() {
         int sum = 0;
@@ -104,6 +183,8 @@ class SumTask extends RecursiveTask<Integer> {
             for (int i = start; i < end; i++) {
                 sum += arry[i];
             }
+            Console.log("asdf=>");
+//            Thread.sleep(10000);
             return sum;
         } else {//当end与start之间的差大于threshold，即要累加的数超过20个时候，将大任务分解成小任务
             int middle = (start + end) / 2;

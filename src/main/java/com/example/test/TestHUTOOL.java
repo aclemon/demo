@@ -1,9 +1,12 @@
 package com.example.test;
 
 import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.lang.Console;
+import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ReflectUtil;
+import cn.hutool.core.util.StrUtil;
 import com.example.domain.dto.CarDto;
 import com.example.domain.dto.ScheduleSilentSignModel;
 import com.example.dto.Car;
@@ -14,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Field;
+import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
@@ -35,9 +39,14 @@ public class TestHUTOOL {
     @Resource
     private static TestA testA;
 
-    public static void main(String[] args) {
-        Console.log("testA =>" + testA);
+    private static final String NO_CONTRACT = "38602";
 
+    public static void main(String[] args) {
+//        Console.log("testA =>" + testA);
+
+
+//        testStr();
+//        testDateTime();
 //        testInt();
 //        testCompare();
 //        testReflect();
@@ -49,6 +58,36 @@ public class TestHUTOOL {
 //        testSub();
 //        testSlfj();
 //        testThread();
+    }
+
+    private static void testStr() {
+        String[] strings = {"ORDERNOTEXIST"};
+        String SEPARATOR = "-";
+        Console.log("aaa=>" + ArrayUtil.join(strings, SEPARATOR));
+        String a = "";
+        String b = "38602";
+        String c = "38603";
+
+        boolean a1 = StrUtil.isNotBlank(a) && !NO_CONTRACT.equals(a);
+        boolean b1 = StrUtil.isNotBlank(b) && !NO_CONTRACT.equals(b);
+        boolean c1 = StrUtil.isNotBlank(c) && !NO_CONTRACT.equals(c);
+        Console.log("=>" + a1);
+        Console.log("=>" + b1);
+        Console.log("=>" + c1);
+    }
+
+    private static void testDateTime() {
+        String chaxun = "2017-05-01 22:33:23";
+        Date date1 = DateUtil.parse(chaxun);
+        LocalDateTime localDateTime = DateUtil.toLocalDateTime(date1);
+
+        String dateStr2 = "2017-04-01 23:33:23";
+        Date date2 = DateUtil.parse(dateStr2);
+        LocalDateTime localDateTime1 = DateUtil.toLocalDateTime(date2);
+        Console.log("=>" + localDateTime.isAfter(localDateTime1));
+
+//相差一个月，31天
+        long betweenDay = DateUtil.between(date1, date2, DateUnit.DAY);
     }
 
     private static void testInt() {
@@ -115,7 +154,17 @@ public class TestHUTOOL {
 //                "\"time\":\"2021-01-25 06:00:00\",\n" +
 //                "\"exe_size\":\"3\"\n" +
                 "}";
-        ScheduleSilentSignModel scheduleSilentSignModel = PaymentJsonUtil.str2Obj(param, ScheduleSilentSignModel.class);
+
+        String param2 = "{\n" +
+                "\"merchant_id\":\"SMYS\",\n" +
+                "\"channel_id\":\"BFBQUICK\",\n" +
+                "\"channel_merchant_id\":\"1002933811\",\n" +
+                "\"start_date\":\"2021-01-26 22:00:00\",\n" +
+                "\"end_date\":\"2021-01-26 22:00:00\",\n" +
+                "\"exe_size\":10,\n" +
+                "\"exe_page\":3\n" +
+                "}";
+        ScheduleSilentSignModel scheduleSilentSignModel = PaymentJsonUtil.str2Obj(param2, ScheduleSilentSignModel.class);
         boolean aa = null != scheduleSilentSignModel.getExeSize() && scheduleSilentSignModel.getExeSize() > 0;
         Console.log("scheduleSilentSignModel=>" + scheduleSilentSignModel);
         Console.log("scheduleSilentSignModel=>" + aa);
