@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 import javax.annotation.Resource;
 import java.lang.reflect.Field;
 import java.time.LocalDateTime;
-import java.util.Comparator;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.concurrent.*;
@@ -41,16 +41,18 @@ public class TestHUTOOL {
 
     private static final String NO_CONTRACT = "38602";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 //        Console.log("testA =>" + testA);
-
-
+        testRunTime();
+//        testHour();
+//        testAwaitTermination();
+//        testThread();
 //        testStr();
 //        testDateTime();
 //        testInt();
 //        testCompare();
 //        testReflect();
-        testPaymentUtil();
+//        testPaymentUtil();
 //        testStatic();
 //        testBaseType();
 //        timeTrans();
@@ -58,6 +60,16 @@ public class TestHUTOOL {
 //        testSub();
 //        testSlfj();
 //        testThread();
+    }
+
+    private static void testRunTime() {
+        int i = Runtime.getRuntime().availableProcessors();
+        log.info("sdf:{}", i);
+    }
+
+    private static void testHour() {
+        int currentHour = new DateTime().toCalendar().get(Calendar.HOUR_OF_DAY);
+        Console.log("=>" + currentHour);
     }
 
     private static void testStr() {
@@ -105,9 +117,14 @@ public class TestHUTOOL {
         LinkedList<Car> cars = new LinkedList<>();
         cars.add(car1);
         cars.add(car2);
-        Console.log("list=>" + cars);
-        cars.sort(Comparator.comparing(Car::getNum));
-        Console.log("sort=>" + cars);
+
+        for (Car car : cars) {
+            Console.log("=>" + car);
+        }
+
+//        Console.log("list=>" + cars);
+//        cars.sort(Comparator.comparing(Car::getNum));
+//        Console.log("sort=>" + cars);
 
 
 //        // 比较器
@@ -206,6 +223,20 @@ public class TestHUTOOL {
         DateTime yyyyMMdd = DateUtil.parse(sb, "yyyyMMdd");
         Console.log("yyyyMMdd=>" + yyyyMMdd);
 
+    }
+
+    public static void testAwaitTermination() throws InterruptedException {
+        ExecutorService service = Executors.newFixedThreadPool(2);
+        for (int i = 0; i < 5; i++) {
+            String str = i + "";
+            service.execute(() -> {
+                System.out.println(str);
+            });
+        }
+        // shutdown() 和 awaitTermination() 组合使用
+        service.shutdown();
+//        service.awaitTermination(1, TimeUnit.MINUTES);
+        System.out.println("线程池已关闭");
     }
 
     private static void testThread() {

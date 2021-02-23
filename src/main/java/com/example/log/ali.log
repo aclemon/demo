@@ -1,0 +1,31 @@
+provider_trace_2021-01-27.2.log.zip:L01|BEGIN|2021-01-27 14:14:58.387|-DubboServerHandler-172.18.16.164:28741-thread-26|INFO|pcs-core|cbs-core-ac12104f-447702-28790|cbs-core-ac12104f-447702-28791|cbs-core-ac12104f-447702-28793|cbs-cor
+e|172.18.16.79|default|com.smy.pcs.service.PayFacade|1.0.0|refundApply|ARG1->{"custNo":"160060009857","merchantId":"axqy","merchantOrderId":"C482101130000680382","merchantRefundId":"C482101130000680382","refundAmt":198.89,"transAmt":1
+98.89}}
+provider_trace_2021-01-27.2.log.zip:L01|END|2021-01-27 15:02:05.596|-DubboServerHandler-172.18.16.164:28741-thread-26|INFO|pcs-core|${dubbo.application.name}-ac1210a4-447703-2166|${dubbo.application.name}-ac1210a4-447703-2166|${dubbo.
+application.name}-ac1210a4-447703-2167|pcs-oms|172.18.33.24|default|com.smy.pcs.service.RefundOrderInfoService|1.0.0|listPageRefundOrderInfo|0,{"current":1,"pages":36,"records":[{"actuallyRefundAmt":198.99,"bankCode":"","channelId":"A
+LIPAY_UNIT_ORDER","channelMerchantId":"2021002117672057","channelName":"支付宝H5支付","channelRefundReqSeqno":"C752101270003330022","channelRefundRespSeqno":"C752101270003330022","createDatetime":1611730544000,"currency":"156","custNo
+":"160060009857","merchantId":"axqy","merchantName":"安心权益","merchantRefundId":"C482101130000680372","orginalChannelReqSeqno":"D210113024272112572","orginalMerchantOrderId":"C482101130000680372","originalOrderAmt":198.99,"originalO
+rderTransDatetime":1610508849000,"queryCount":0,"refundAmt":198.99,"refundReqDatetime":1611730545000,"refundResDatetime":1611730802000,"refundSeqno":"C752101270003330022","remark":"订单退款","returnCode":"QueryRefund-10000-C9999","ret
+urnInfo":"Success|","signature":"551c52dad288b853d7edf119db08e035","standardCode":"REFUND_SUCCESS","standardMsg":"退款成功","status":"SUCCESS","stepStatus":"SUCCESS","updateDatetime":1611730802000,"version":3},{"actuallyRefundAmt":299
+.00,"bankCode":"01040000","channelId":"BFBFC","channelMerchantId":"1003341387","channelName":"百付宝全卡要素","channelRefundReqSeqno":"C752004200000330211","channelRefundRespSeqno":"C752004200000330211","createDatetime":1587365314000,
+"currency":"156","custNo":"0000000000","merchantId":"ningmengfenqi","merchantName":"倍升-柠檬分期","merchantRefundId":"1172004200003481254","orginalChannelReqSeqno":"BFBFCC602004070114503589","orginalMerchantOrderId":"1192004070003102
+031","originalOrderAmt":0.00,"queryCount":0,"refundAmt":299.00,"refundReqDatetime":1587365314000,"refundResDatetime":1611730802000,"refundSeqno":"C752004200000330211","remark":"1192004070003102031","returnCode":"REFUND_QUERY-2","retur
+nInfo":"退款处理中","signature":"6af12d21795cb5ba962a82bf674e40ad","standardCode":"REFUND_PROCESSING","standardMsg":"处理中","status":"PROCESSING","stepStatus":"WAIT_QUERY","updateDatetime":1611730801000,"version":88302},{"actuallyRef
+undAmt":159.60,"bankCode":"01030000","channelId":"BFBQUICK","channelMerchantId":"1003342151","channelName":"百付宝协议支付","channelRefundReqSeqno":"C752101270003320020","channelRefundRespSeqno":"C752101270003320020","createDatetime":
+1611730783000,"currency":"156","custNo":"160039169011","merchantId":"beisheng","merchantName":"倍升","merchantRefundId":"1172101270011403909","orginalChannelReqSeqno":"D210127024935627722","orginalMerchantOrderId":"1172101270011403222
+","originalOrderAmt":159.60,"originalOrderTransDatetime":1611724390000,"queryCount":0,"refundAmt":159.60,"refundReqDatetime":1611730784000,"refundResDatetime":1611730792000,"refundSeqno":"C752101270003320020","remark":"119210127001139
+2754","returnCode":"REFUND_QUERY-3","returnInfo":"原路退回成功","signature":"c274ee1b8b959315a495168d267915f6","standardCode":"REFUND_SUCCESS","standardMsg":"退款成功","status":"SUCCESS","stepStatus":"SUCCESS","updateDatetime":1611730
+791000,"version":3},{"actuallyRefundAmt":159.60,"bankCode":"01030000","channelId":"BFBQUICK","channelMerchantId":"1003342151","channelName":"百付宝协议支付","channelRefundReqSeqno":"C752101270003360018","channelRefundRespSeqno":"C7521
+01270003360018","createDatetime":1611729924000,"currency":"156","custNo":"160039540364","merchantId":"beisheng","merchantName":"倍升","merchantRefundId":"1172101270011413841","orginalChannelReqSeqno":"D210126024890715022","orginalMerc
+hantOrderId":"1172101260011374322","originalOrderAmt":159.60,"originalOrderTransDatetime":1611651198000,"queryCount":0,"refundAmt":159.60,"refundReqDatetime":1611729925000,"refundResDatetime":1611730261000,"refundSeqno":"C752101270003
+360018","remark":"1192101260011363799","returnCode":"REFUND_QUERY-3","returnInfo":"原路退回成功","signature":"b62abec571b202064a3576da5b5058c7","standardCode":"REFUND_SUCCESS","standardMsg":"退款成功","status":"SUCCESS","stepStatus":"
+SUCCESS","updateDatetime":1611730261000,"version":3},{"actuallyRefundAmt":67.60,"bankCode":"01020000","channelId":"BFBQUICK","channelMerchantId":"1003342151","channelName":"百付宝协议支付","channelRefundReqSeqno":"C752101270003350019"
+,"channelRefundRespSeqno":"C752101270003350019","createDatetime":1611729909000,"currency":"156","custNo":"1600,44
+
+
+
+支付宝响应->{"alipayTradeRefundResponse":{"msg":"Business Failed","refundFee":"0.00","httpBody":"{\"alipay_trade_refund_response\":{\"code\":\"40004\",\"msg\":\"Busine
+ss Failed\",\"sub_code\":\"ACQ.SELLER_ACCOUNT_HAD_FREEZE\",\"sub_msg\":\"卖家帐号被冻结\",\"out_trade_no\":\"D210113024272136382\",\"refund_fee\":\"0.00\",\"send_back_fee\":\"0.00\"},\"alipay_cert_sn\":\"83d0743786b834c520f1928e455010
+c5\",\"sign\":\"ldoOGZl0aU/2dhQ3cTvLSBT1ZJKbXeLNBW61j1owVj+QCPekFYPeT7tsYGsgo9l9BKcCcxGy0aYGEXe8brrQqwEqFxOLldX5NMgHC6HtUIybfowZaIvcKgysNPELgxtb4GZi7DQx40XWSzQj4HtTKb32t/sAyXXI2oyIPvC1VVHQdxYOSZOWrY3oD5ia1PHMKGKCL6E3jjovIHXqFxCEdO0N7N
+E3f8G1Id6oS3xTp9leUoEJJ/aX1DiUlKZuH96Pp+2HjhZazULRxcrKkIhWZo5XeSNEynbsi2FAOOOOuSGH9h28XlDbW6BZz8l1NbMMPWJQdCsyque8PiRO1gcJsw==\"}","code":"40004","subCode":"ACQ.SELLER_ACCOUNT_HAD_FREEZE","outTradeNo":"D210113024272136382","subMsg":"
+卖家帐号被冻结"}}
