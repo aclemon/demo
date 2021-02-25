@@ -1,12 +1,8 @@
 package com.example.config;
 
-import cn.hutool.core.thread.ThreadFactoryBuilder;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
-
-import java.util.concurrent.*;
 
 /**
  * @description: 线程池配置
@@ -37,12 +33,12 @@ public class ThreadPoolConfig {
      *
      * @return
      */
-    @Bean
-    public ExecutorService threadPoolExecutor() {
-        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNamePrefix("common-pool-%d").build();
-        return new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.SECONDS,
-                new LinkedBlockingQueue<>(BLOCKING_QUEUE_CAPACITY), threadFactory);
-    }
+//    @Bean
+//    public ExecutorService threadPoolExecutor() {
+//        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNamePrefix("common-pool-%d").build();
+//        return new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.SECONDS,
+//                new LinkedBlockingQueue<>(BLOCKING_QUEUE_CAPACITY), threadFactory);
+//    }
 
     /**
      * 跑批待处理订单线程池配置
@@ -50,12 +46,12 @@ public class ThreadPoolConfig {
      *
      * @return
      */
-    @Bean
-    public ExecutorService disposeOrderHandleThreadPool() {
-        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNamePrefix("disposeOrder-pool-%d").build();
-        final int corePoolSize = AVAILABLE_PROCESSORS * 6, maxPoolSize = corePoolSize * 2, keepAliveTime = 60, blockingQueueCapacity = 5000;
-        return new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime, TimeUnit.SECONDS,
-                new LinkedBlockingQueue<>(blockingQueueCapacity), threadFactory);
-    }
+//    @Bean
+//    public ExecutorService disposeOrderHandleThreadPool() {
+//        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNamePrefix("disposeOrder-pool-%d").build();
+//        final int corePoolSize = AVAILABLE_PROCESSORS * 6, maxPoolSize = corePoolSize * 2, keepAliveTime = 60, blockingQueueCapacity = 5000;
+//        return new ThreadPoolExecutor(corePoolSize, maxPoolSize, keepAliveTime, TimeUnit.SECONDS,
+//                new LinkedBlockingQueue<>(blockingQueueCapacity), threadFactory);
+//    }
 
 }

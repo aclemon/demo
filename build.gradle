@@ -47,7 +47,7 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
 
 //    // https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter
-//    compile group: 'org.redisson', name: 'redisson-spring-boot-starter', version: '3.14.0'
+    compile group: 'org.redisson', name: 'redisson-spring-boot-starter', version: '3.14.0'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
     compile 'org.apache.commons:commons-pool2'
 

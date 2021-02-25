@@ -43,7 +43,8 @@ public class TestHUTOOL {
 
     public static void main(String[] args) throws InterruptedException {
 //        Console.log("testA =>" + testA);
-        testRunTime();
+        testStrUtil();
+//        testRunTime();
 //        testHour();
 //        testAwaitTermination();
 //        testThread();
@@ -60,6 +61,11 @@ public class TestHUTOOL {
 //        testSub();
 //        testSlfj();
 //        testThread();
+    }
+
+    private static void testStrUtil() {
+        
+
     }
 
     private static void testRunTime() {

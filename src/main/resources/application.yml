@@ -1,0 +1,32 @@
+nacos:
+  config:
+    auto-refresh: true
+    data-id: nacos-demo.properties
+    password: nacos
+    server-addr: 120.24.36.55:8848
+    username: nacos
+spring:
+  application:
+    name: nacos-demo
+  cache:
+    type: redis
+  devtools:
+    restart:
+      enabled: true
+  freemarker:
+    checkTemplateLocation: false
+  redis:
+    database: 7
+    redisson:
+      file: classpath:redisson.yml
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    timeout: 2000
+    url: redis://120.24.36.55:6379
+    cache:
+      # Spring Cache 会根据依赖的包自行装配
+      type: redis
