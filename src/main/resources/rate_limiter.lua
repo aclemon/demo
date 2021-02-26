@@ -42,19 +42,20 @@ local function acquire(key, permits, curr_mill_second)
     end
 
 
-    --    local result = {}
-    --    result.permit = -1
-    local result = -1
-    if (local_curr_permits - permits >= 0) then
-        result = local_curr_permits - permits
-        --- result.cert_id = redis.pcall("HGET", key, "cert_id")
-        redis.pcall("HSET", key, "curr_permits", local_curr_permits - permits)
-    else
-        --- 否则令牌数归零
-        redis.pcall("HSET", key, "curr_permits", 0)
-    end
-
+    local result = {}
+    result.permit = -1
     return result
+    --    local result = -1
+    --    if (local_curr_permits - permits >= 0) then
+    --        result = local_curr_permits - permits
+    --        --- result.cert_id = redis.pcall("HGET", key, "cert_id")
+    --        redis.pcall("HSET", key, "curr_permits", local_curr_permits - permits)
+    --    else
+    --        --- 否则令牌数归零
+    --        redis.pcall("HSET", key, "curr_permits", 0)
+    --    end
+    --
+    --    return result
 end
 
 
