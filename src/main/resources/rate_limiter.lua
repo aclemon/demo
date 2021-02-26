@@ -9,7 +9,7 @@
 --- -1 表示取令牌失败，也就是桶里没有令牌
 --- 1 表示取令牌成功
 --- @param key 令牌的唯一标识
---- @param permits  请求令牌数量
+--- @param permits 请求令牌数量
 --- @param curr_mill_second 当前毫秒数
 local function acquire(key, permits, curr_mill_second)
     local rate_limit_info = redis.pcall("HMGET", key, "last_mill_second", "curr_permits", "max_permits", "period")
@@ -28,8 +28,8 @@ local function acquire(key, permits, curr_mill_second)
     --- 令牌桶刚刚创建，上一次获取令牌的毫秒数为空
     --- 根据和上一次向桶里添加令牌的时间和当前时间差，触发式往桶里添加令牌，并且更新上一次向桶里添加令牌的时间
     --- 如果向桶里添加的令牌数不足一个，则不更新上一次向桶里添加令牌的时间
-    if (type(last_mill_second) ~= 'boolean'  and last_mill_second ~= nil) then
-        local reverse_permits = math.floor((curr_mill_second - last_mill_second) / (period*1000)) * max_permits
+    if (type(last_mill_second) ~= 'boolean' and last_mill_second ~= nil) then
+        local reverse_permits = math.floor((curr_mill_second - last_mill_second) / (period * 1000)) * max_permits
         local expect_curr_permits = reverse_permits + curr_permits;
         local_curr_permits = math.min(expect_curr_permits, max_permits);
 
@@ -42,10 +42,11 @@ local function acquire(key, permits, curr_mill_second)
     end
 
 
-    local result = {}
-    result.permit = -1
+    --    local result = {}
+    --    result.permit = -1
+    result = -1
     if (local_curr_permits - permits >= 0) then
-        result.permit = local_curr_permits - permits
+        result = local_curr_permits - permits
         --- result.cert_id = redis.pcall("HGET", key, "cert_id")
         redis.pcall("HSET", key, "curr_permits", local_curr_permits - permits)
     else
@@ -82,15 +83,14 @@ local function usedTokens(key, curr_mill_second)
     --- 令牌桶刚刚创建，上一次获取令牌的毫秒数为空
     --- 根据和上一次向桶里添加令牌的时间和当前时间差，触发式往桶里添加令牌，并且更新上一次向桶里添加令牌的时间
     --- 如果向桶里添加的令牌数不足一个，则不更新上一次向桶里添加令牌的时间
-    if (type(last_mill_second) ~= 'boolean'  and last_mill_second ~= nil and type(period) ~= 'boolean'  and period ~= nil) then
-        local reverse_permits = math.floor((curr_mill_second - last_mill_second) / (period*1000)) * max_permits
+    if (type(last_mill_second) ~= 'boolean' and last_mill_second ~= nil and type(period) ~= 'boolean' and period ~= nil) then
+        local reverse_permits = math.floor((curr_mill_second - last_mill_second) / (period * 1000)) * max_permits
         local expect_curr_permits = reverse_permits + curr_permits;
         --- 这里只计算理论的剩余令牌数，不对令牌做增减炒作
         local_curr_permits = math.min(expect_curr_permits, max_permits);
     end
 
-    return max_permits-local_curr_permits
-
+    return max_permits - local_curr_permits
 end
 
 
@@ -98,7 +98,7 @@ end
 --- 初始化令牌桶配置
 --- @param key 令牌的唯一标识
 --- @param max_permits 桶大小
---- @param period  令牌增加间隔
+--- @param period 令牌增加间隔
 local function init(key, max_permits, period)
     local rate_limit_info = redis.pcall("HMGET", key, "last_mill_second", "curr_permits", "max_permits", "period")
     local curr_permits = tonumber(rate_limit_info[2])

@@ -1,7 +1,7 @@
 nacos:
   config:
     auto-refresh: true
-    data-id: nacos-demo.properties
+    data-id: gradle_demo.yaml
     password: nacos
     server-addr: 120.24.36.55:8848
     username: nacos

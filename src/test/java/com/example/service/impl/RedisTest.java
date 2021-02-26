@@ -15,6 +15,7 @@ import org.springframework.scripting.support.ResourceScriptSource;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @Author: w00990
@@ -69,12 +70,12 @@ public class RedisTest {
                 return connection.time();
             }
         });
-        RedisScript<Object> redisScript = getRedisScript();
+        RedisScript<List<Object>> redisScript = getRedisScript();
         assert currMillSecond != null;
-        Object acquire = stringRedisTemplate.execute(redisScript,
+        List<Object> acquire = stringRedisTemplate.execute(redisScript,
                 ImmutableList.of("asd:asd"),
                 "acquire", "1", currMillSecond.toString());
-        Console.log("=>" + acquire);
+        Console.log("=>" + acquire.size());
     }
 
     private static <T> RedisScript<T> getRedisScript() {
