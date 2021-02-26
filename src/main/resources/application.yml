@@ -17,8 +17,8 @@ spring:
     checkTemplateLocation: false
   redis:
     database: 7
-      redisson:
-        file: classpath:redisson.yml
+    redisson:
+      file: classpath:redisson.yml
     lettuce:
       pool:
         max-active: 8
@@ -27,10 +27,7 @@ spring:
         min-idle: 0
     timeout: 2000
     url: redis://120.24.36.55:6379
+    cache:
+      # Spring Cache 会根据依赖的包自行装配
+      type: redis
     password: 123456
-#    cache:
-#      # Spring Cache 会根据依赖的包自行装配
-#      type: redis
-
-
-
