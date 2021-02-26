@@ -44,7 +44,7 @@ local function acquire(key, permits, curr_mill_second)
 
     --    local result = {}
     --    result.permit = -1
-    result = -1
+    local result = -1
     if (local_curr_permits - permits >= 0) then
         result = local_curr_permits - permits
         --- result.cert_id = redis.pcall("HGET", key, "cert_id")
