@@ -3,6 +3,8 @@ package com.example.test;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.exceptions.ExceptionUtil;
+import cn.hutool.core.exceptions.ValidateException;
 import cn.hutool.core.lang.Console;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ReflectUtil;
@@ -43,7 +45,8 @@ public class TestHUTOOL {
 
     public static void main(String[] args) throws InterruptedException {
 //        Console.log("testA =>" + testA);
-        testStrUtil();
+        testExceptionUtil();
+//        testStrUtil();
 //        testRunTime();
 //        testHour();
 //        testAwaitTermination();
@@ -63,8 +66,22 @@ public class TestHUTOOL {
 //        testThread();
     }
 
+    private static void testExceptionUtil() {
+
+
+        try {
+            throw new ValidateException("验证异常asdasd");
+        } catch (ValidateException e) {
+//            e.printStackTrace();
+            String message = ExceptionUtil.getMessage(e);
+            log.info(message);
+            log.error("异常信息:", e);
+
+        }
+    }
+
     private static void testStrUtil() {
-        
+
 
     }
 

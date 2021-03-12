@@ -16,9 +16,10 @@ spring:
   freemarker:
     checkTemplateLocation: false
   redis:
-    database: 7
-    redisson:
-      file: classpath:redisson.yml
+    database: 0
+    password:
+    #    redisson:
+    #      file: classpath:redisson.yml
     lettuce:
       pool:
         max-active: 8
@@ -30,4 +31,4 @@ spring:
     cache:
       # Spring Cache 会根据依赖的包自行装配
       type: redis
-    password: 123456
+

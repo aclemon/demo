@@ -1,0 +1,24 @@
+.weixin.util.WeixinHttpsUtil.sendPost():64 - weChatApi请求数据:<?xml version="1.0" encoding="UTF-8"?><xml><appid>wxe9c3085b9014cdd6</appid><sign>A028036AEDE3D2C02A6F99BC94A5FFDB</sign><mch_id>1605160560</mch_id><nonce_str>0758648599344a1a82e9eb5c49579c30</nonce_str><out
+_trade_no>D210305000012000701</out_trade_no><total_fee>3000</total_fee><spbill_create_ip>127.0.0.1</spbill_create_ip><time_expire>20210305192238</time_expire><notify_url>https://crbc.smyfinancial.com:8443/b2b-front/callback/payment/notify//WEIXINSERVICE_H5/1605160560</n
+otify_url><trade_type>MWEB</trade_type><limit_pay>no_credit</limit_pay></xml>
+2021-03-05 19:12:38.886|DEBUG|taskExecutor-23||||||com.smy.pcs.dao.ChannelLogMapper.insert.debug():159 - ==> Parameters: null, WeixinServiceH5PayClient(String), getMerchantConfig(String), "{\"mchId\":\"1605160560\",\"certLocalPath\":\"/app/smy-pcs/jetty/profile/weChatH5
+-dfk/apiclient_cert.p12\",\"appId\":\"wxe9c3085b9014cdd6\",\"certPassword\":\"1605160560\",\"orderValidTime\":10,\"signKey\":\"217B0B7D338993C48EE6F58735490F09\"}"|(String), WeixinServiceConfig(subMchId=null, subAppId=null, orderValidTime=10, creditCardSupport=false, re
+fundNotifyUrl=null)(String), 1(Long), 2021-03-05 19:12:38.882(Timestamp)
+2021-03-05 19:12:38.886|DEBUG|DubboServerHandler-192.168.26.81:20906-thread-9|cddb1416ea2e17aa|192.168.8.29|${dubbo.application.name}-c0a81a51-448595-53|${dubbo.application.name}-c0a81a51-448595-53|${dubbo.application.name}-c0a81a51-448595-54|com.smy.pcs.chn.sdk.utils.C
+hannelHttpUtil.initHttpRequest():75 - init HttpClient url =https://api.mch.weixin.qq.com/pay/unifiedorder Method= 1 charset = UTF-8 protocol = TLSv1.2
+2021-03-05 19:12:38.886|DEBUG|DubboServerHandler-192.168.26.81:20906-thread-9|cddb1416ea2e17aa|192.168.8.29|${dubbo.application.name}-c0a81a51-448595-53|${dubbo.application.name}-c0a81a51-448595-53|${dubbo.application.name}-c0a81a51-448595-54|com.smy.pcs.chn.sdk.utils.C
+hannelHttpUtil.initSSLSocket():413 - initSSLSocket ... privateKeyPath=/app/smy-pcs/jetty/profile/weChatH5-dfk/apiclient_cert.p12 basicAuth=weChat
+2021-03-05 19:12:38.924|DEBUG|taskExecutor-23||||||com.smy.pcs.dao.ChannelLogMapper.insert.debug():159 - <==    Updates: 1
+2021-03-05 19:12:38.925|INFO |taskExecutor-23||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelLogServiceImpl.insert success ,耗时：42ms
+2021-03-05 19:12:39.238|INFO |DubboServerHandler-192.168.26.81:20906-thread-9|cddb1416ea2e17aa|192.168.8.29|${dubbo.application.name}-c0a81a51-448595-53|${dubbo.application.name}-c0a81a51-448595-53|${dubbo.application.name}-c0a81a51-448595-54|com.smy.pcs.chn.sdk.utils.C
+hannelHttpUtil.httpPostWithJks():236 - reqUrl = https://api.mch.weixin.qq.com/pay/unifiedorder reqBody = <?xml version="1.0" encoding="UTF-8"?><xml><appid>wxe9c3085b9014cdd6</appid><sign>A028036AEDE3D2C02A6F99BC94A5FFDB</sign><mch_id>1605160560</mch_id><nonce_str>075864
+8599344a1a82e9eb5c49579c30</nonce_str><out_trade_no>D210305000012000701</out_trade_no><total_fee>3000</total_fee><spbill_create_ip>127.0.0.1</spbill_create_ip><time_expire>20210305192238</time_expire><notify_url>https://crbc.smyfinancial.com:8443/b2b-front/callback/paym
+ent/notify//WEIXINSERVICE_H5/1605160560</notify_url><trade_type>MWEB</trade_type><limit_pay>no_credit</limit_pay></xml>
+2021-03-05 19:12:39.691|INFO |DubboServerHandler-192.168.26.81:20906-thread-9|cddb1416ea2e17aa|192.168.8.29|${dubbo.application.name}-c0a81a51-448595-53|${dubbo.application.name}-c0a81a51-448595-53|${dubbo.application.name}-c0a81a51-448595-54|com.smy.pcs.chn.sdk.utils.C
+hannelHttpUtil.execute():377 - httpResponse status = 200, body = <xml><return_code><![CDATA[FAIL]]></return_code>
+<return_msg><![CDATA[缺少参数]]></return_msg>
+</xml>
+
+
+
+weChatApi请求数据:<?xml version="1.0" encoding="UTF-8"?><xml><appid>wxe9c3085b9014cdd6</appid><sign>71ACC260EFAAF4F5E0F9A83D3401EF5D</sign><body>微信测试</body><attach>微信测试</attach><mch_id>1605160560</mch_id><nonce_str>578e854bfa1f41c6be86e36fff4174af</nonce_str><out_trade_no>D210308001078000194</out_trade_no><total_fee>3000</total_fee><spbill_create_ip>127.0.0.1</spbill_create_ip><time_expire>20210308120817</time_expire><notify_url>https://crbc.smyfinancial.com:8443/b2b-front/callback/payment/notify//WEIXINSERVICE_H5/1605160560</notify_url><trade_type>MWEB</trade_type><limit_pay>no_credit</limit_pay></xml>

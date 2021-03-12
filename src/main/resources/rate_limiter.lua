@@ -12,11 +12,11 @@
 --- @param permits 请求令牌数量
 --- @param curr_mill_second 当前毫秒数
 local function acquire(key, permits, curr_mill_second)
-    local rate_limit_info = redis.pcall("HMGET", key, "last_mill_second", "curr_permits", "max_permits", "period")
-    local last_mill_second = rate_limit_info[1]
-    local curr_permits = tonumber(rate_limit_info[2])
-    local max_permits = tonumber(rate_limit_info[3])
-    local period = rate_limit_info[4]
+    local rate_limit_info = redis.pcall("HMGET", key, "last_mill_second", "curr_permits", "max_permits", "period");
+    local last_mill_second = rate_limit_info[1];
+    local curr_permits = tonumber(rate_limit_info[2]);
+    local max_permits = tonumber(rate_limit_info[3]);
+    local period = rate_limit_info[4];
 
     -- 如果获取令牌的时候最大令牌数不存在，说明这个令牌桶已经被删除复位了，忽略本次请求，认为可以获得令牌
     if (max_permits == nil) then
@@ -29,33 +29,30 @@ local function acquire(key, permits, curr_mill_second)
     --- 根据和上一次向桶里添加令牌的时间和当前时间差，触发式往桶里添加令牌，并且更新上一次向桶里添加令牌的时间
     --- 如果向桶里添加的令牌数不足一个，则不更新上一次向桶里添加令牌的时间
     if (type(last_mill_second) ~= 'boolean' and last_mill_second ~= nil) then
-        local reverse_permits = math.floor((curr_mill_second - last_mill_second) / (period * 1000)) * max_permits
+        local reverse_permits = math.floor((curr_mill_second - last_mill_second) / (period * 1000)) * max_permits;
         local expect_curr_permits = reverse_permits + curr_permits;
         local_curr_permits = math.min(expect_curr_permits, max_permits);
 
         --- 大于0表示要添加令牌，需要更新last_mill_second
         if (reverse_permits > 0) then
-            redis.pcall("HSET", key, "last_mill_second", curr_mill_second)
+            redis.pcall("HSET", key, "last_mill_second", curr_mill_second);
         end
     else
-        redis.pcall("HSET", key, "last_mill_second", curr_mill_second)
+        redis.pcall("HSET", key, "last_mill_second", curr_mill_second);
     end
 
 
-    local result = {}
-    result.permit = -1
-    return result
-    --    local result = -1
-    --    if (local_curr_permits - permits >= 0) then
-    --        result = local_curr_permits - permits
-    --        --- result.cert_id = redis.pcall("HGET", key, "cert_id")
-    --        redis.pcall("HSET", key, "curr_permits", local_curr_permits - permits)
-    --    else
-    --        --- 否则令牌数归零
-    --        redis.pcall("HSET", key, "curr_permits", 0)
-    --    end
-    --
-    --    return result
+    local result = {};
+    if (local_curr_permits - permits >= 0) then
+        result.permit = local_curr_permits - permits;
+        result.cert_id = redis.pcall("HGET", key, "cert_id");
+        redis.pcall("HSET", key, "curr_permits", local_curr_permits - permits);
+    else
+        --- 否则令牌数归零
+        redis.pcall("HSET", key, "curr_permits", 0);
+    end
+
+    return result;
 end
 
 
@@ -68,10 +65,10 @@ end
 --- @param curr_mill_second 当前毫秒数
 local function usedTokens(key, curr_mill_second)
     local rate_limit_info = redis.pcall("HMGET", key, "last_mill_second", "curr_permits", "max_permits", "period")
-    local last_mill_second = rate_limit_info[1]
-    local curr_permits = tonumber(rate_limit_info[2])
-    local max_permits = tonumber(rate_limit_info[3])
-    local period = rate_limit_info[4]
+    local last_mill_second = rate_limit_info[1];
+    local curr_permits = tonumber(rate_limit_info[2]);
+    local max_permits = tonumber(rate_limit_info[3]);
+    local period = rate_limit_info[4];
 
     -- 如果获取令牌的时候最大令牌数不存在，说明这个令牌桶已经被删除复位了，忽略本次请求，返回-1
     if (max_permits == nil) then
@@ -85,13 +82,13 @@ local function usedTokens(key, curr_mill_second)
     --- 根据和上一次向桶里添加令牌的时间和当前时间差，触发式往桶里添加令牌，并且更新上一次向桶里添加令牌的时间
     --- 如果向桶里添加的令牌数不足一个，则不更新上一次向桶里添加令牌的时间
     if (type(last_mill_second) ~= 'boolean' and last_mill_second ~= nil and type(period) ~= 'boolean' and period ~= nil) then
-        local reverse_permits = math.floor((curr_mill_second - last_mill_second) / (period * 1000)) * max_permits
+        local reverse_permits = math.floor((curr_mill_second - last_mill_second) / (period * 1000)) * max_permits;
         local expect_curr_permits = reverse_permits + curr_permits;
         --- 这里只计算理论的剩余令牌数，不对令牌做增减炒作
         local_curr_permits = math.min(expect_curr_permits, max_permits);
     end
 
-    return max_permits - local_curr_permits
+    return max_permits - local_curr_permits;
 end
 
 
@@ -155,15 +152,3 @@ elseif method == 'usedTokens' then
 else
     --ignore
 end
-
-
-
-
-
-
-
-
-
-
-
-

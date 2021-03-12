@@ -47,7 +47,7 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
 
 //    // https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter
-    compile group: 'org.redisson', name: 'redisson-spring-boot-starter', version: '3.14.0'
+//    compile group: 'org.redisson', name: 'redisson-spring-boot-starter', version: '3.14.0'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
     compile 'org.apache.commons:commons-pool2'
 
@@ -56,6 +56,9 @@ dependencies {
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.3.0.Final'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
 //    annotationTestProcessor 'org.projectlombok:lombok:1.18.10'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
+
 
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'
     compile 'com.baomidou:mybatis-plus-boot-starter:3.1.1'
