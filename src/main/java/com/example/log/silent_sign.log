@@ -1,0 +1,82 @@
+2021-03-15 12:01:11.088|INFO |common-pool-0||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():62 - 开始静默签约：C011806260027396218
+2021-03-15 12:01:11.089|INFO |common-pool-2||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.save success ,耗时：17ms
+2021-03-15 12:01:11.089|INFO |common-pool-2||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():76 - 结束静默签约：C011806260027396217
+2021-03-15 12:01:11.089|INFO |common-pool-2||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardSilentSignFacadeImpl.silentSign success ,耗时：467ms
+2021-03-15 12:01:11.091|INFO |common-pool-0||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelInfoServiceImpl.getConfigInfo success ,耗时：3ms
+2021-03-15 12:01:11.091|INFO |common-pool-0||||||com.smy.pcs.chn.sdk.utils.ChannelHttpUtil.httpPostWithForm():276 - reqUrl = https://www.dxmpay.com/cashdesk/service/easypayapi/silentsign formMap = {card_name=FMcdbxS0r+aXez8hbatKrw==,
+card_no=LewHxwGsDmfamjzbnAuzTPZNTnmKb+vSI4ncsX9q5uM=, card_type=2, encrypt_method=1, id_no=O8H1Ms8OXx2ayfWtNOguH60IDHvrgofGq5iOE2KEFqA=, id_type=1, input_charset=1, phone=nBHcg00ioprwQWIp6yeJ2g==, service_code=2, sign=ebac46ae978ec6bb
+06dc9a786cf1cfb4, sign_method=1, sp_no=1002933811, version=1}
+2021-03-15 12:01:11.093|INFO |common-pool-7||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.findOneByMap success ,耗时：4ms
+2021-03-15 12:01:11.093|INFO |common-pool-7||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():62 - 开始静默签约：C011806260027396218
+2021-03-15 12:01:11.093|INFO |taskExecutor-154||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelLogServiceImpl.insert success ,耗时：2ms
+2021-03-15 12:01:11.096|INFO |common-pool-7||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelInfoServiceImpl.getConfigInfo success ,耗时：3ms
+2021-03-15 12:01:11.099|INFO |common-pool-7||||||com.smy.pcs.chn.sdk.utils.ChannelHttpUtil.httpPostWithForm():276 - reqUrl = https://www.dxmpay.com/cashdesk/service/easypayapi/silentsign formMap = {card_name=FMcdbxS0r+aXez8hbatKrw==,
+card_no=LewHxwGsDmfamjzbnAuzTPZNTnmKb+vSI4ncsX9q5uM=, card_type=2, encrypt_method=1, id_no=O8H1Ms8OXx2ayfWtNOguH60IDHvrgofGq5iOE2KEFqA=, id_type=1, input_charset=1, phone=nBHcg00ioprwQWIp6yeJ2g==, service_code=2, sign=ebac46ae978ec6bb
+06dc9a786cf1cfb4, sign_method=1, sp_no=1002933811, version=1}
+2021-03-15 12:01:11.099|INFO |taskExecutor-172|820240b996066b9d|||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelLogServiceImpl.insert success ,耗时：3ms
+2021-03-15 12:01:11.119|INFO |common-pool-1||||||com.smy.pcs.chn.sdk.utils.ChannelHttpUtil.execute():377 - httpResponse status = 200, body = {"result":"0","result_string":"OK","contract_no":"202103150****70490","token":""}
+2021-03-15 12:01:11.126|INFO |taskExecutor-170||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelLogServiceImpl.insert success ,耗时：7ms
+2021-03-15 12:01:11.126|INFO |common-pool-1||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.save success ,耗时：5ms
+2021-03-15 12:01:11.127|INFO |common-pool-1||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():76 - 结束静默签约：C011806260027397606
+2021-03-15 12:01:11.127|INFO |common-pool-1||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardSilentSignFacadeImpl.silentSign success ,耗时：489ms
+2021-03-15 12:01:11.130|INFO |common-pool-3||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.findOneByMap success ,耗时：3ms
+2021-03-15 12:01:11.130|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|aea84077becab1a4|172.18.16.23|pcr-core-ac121017-448828-46646|pcr-core-ac121017-448828-46646|pcr-core-ac121017-448828-46647|com.smy.framework.core.intercepto
+r.ServiceInterceptor.invoke():68 - 交易：AiBankServiceImpl.getAcctInfo success ,耗时：3ms
+2021-03-15 12:01:11.130|INFO |common-pool-3||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():62 - 开始静默签约：C011806260027397608
+2021-03-15 12:01:11.130|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|aea84077becab1a4|172.18.16.23|pcr-core-ac121017-448828-46646|pcr-core-ac121017-448828-46646|pcr-core-ac121017-448828-46647|com.smy.framework.core.intercepto
+r.ServiceInterceptor.invoke():68 - 交易：SecondAccountAiBankServiceImpl.getAcctInfo success ,耗时：3ms
+2021-03-15 12:01:11.130|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|aea84077becab1a4|172.18.16.23|pcr-core-ac121017-448828-46646|pcr-core-ac121017-448828-46646|pcr-core-ac121017-448828-46647|com.smy.framework.core.intercepto
+r.ServiceInterceptor.invoke():68 - 交易：SecondAccountServiceImpl.getAcctInfo success ,耗时：4ms
+2021-03-15 12:01:11.131|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|aea84077becab1a4|172.18.16.23|pcr-core-ac121017-448828-46646|pcr-core-ac121017-448828-46646|pcr-core-ac121017-448828-46647|com.smy.smyx.rtm.client.interface
+Call.interfaceCallInner():248 - {"msgType":"interfaceCall","callCostTime":5,"consumerSysCode":"pcr-core","sysIp":"172.18.16.4","callResult":"success"}
+2021-03-15 12:01:11.133|INFO |common-pool-3||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelInfoServiceImpl.getConfigInfo success ,耗时：3ms
+2021-03-15 12:01:11.133|INFO |common-pool-3||||||com.smy.pcs.chn.sdk.utils.ChannelHttpUtil.httpPostWithForm():276 - reqUrl = https://www.dxmpay.com/cashdesk/service/easypayapi/silentsign formMap = {card_name=2QOyJxvzaQLA3DxPq5SXcA==,
+card_no=QJpg66Nd1YOKCKwKUV6xmU9fSRaOAU/uTDt5RhWdL9s=, card_type=2, encrypt_method=1, id_no=vAhY93EckDccXxFFYrm9YWnRVCgaS9+iF9wlu/5oB4c=, id_type=1, input_charset=1, phone=oeew34q7VRrR4X+3NQQKJg==, service_code=2, sign=81743510fedff803
+dd21212655ec2afd, sign_method=1, sp_no=1002933811, version=1}
+2021-03-15 12:01:11.135|INFO |taskExecutor-167||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelLogServiceImpl.insert success ,耗时：2ms
+2021-03-15 12:01:11.135|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24118|ass-core-ac121033-448828-24118|ass-core-ac121033-448828-24119|com.smy.framework.core.intercepto
+r.ServiceInterceptor.invoke():68 - 交易：WeBankServiceImpl.getAccountStatusByCust success ,耗时：4ms
+2021-03-15 12:01:11.136|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24118|ass-core-ac121033-448828-24118|ass-core-ac121033-448828-24119|com.smy.smyx.rtm.client.interface
+Call.interfaceCallInner():248 - {"msgType":"interfaceCall","callCostTime":5,"consumerSysCode":"ass-core","sysIp":"172.18.16.4","callResult":"success"}
+2021-03-15 12:01:11.138|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24120|ass-core-ac121033-448828-24120|ass-core-ac121033-448828-24121|com.smy.pcs.handler.impl.aibank.A
+iBankHandlerAccountImpl.getAccountStatus():429 - getAccountStatus 上送参数: SecondAccountQueryReq(super=SecondAccountAbstractionReq(coopCode=aiBank, custNo=160008883199, idNo=411425198****68439), balanceFlag=null)
+2021-03-15 12:01:11.142|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24120|ass-core-ac121033-448828-24120|ass-core-ac121033-448828-24121|com.smy.pcs.handler.impl.aibank.A
+iBankHandlerAccountImpl.getAccountStatus():450 - getAccountStatus 响应参数: {"status":"F","msg":"账户未开通，请先开通还款账户"}
+2021-03-15 12:01:11.143|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24120|ass-core-ac121033-448828-24120|ass-core-ac121033-448828-24121|com.smy.framework.core.intercepto
+r.ServiceInterceptor.invoke():68 - 交易：AiBankServiceImpl.getAccountStatus success ,耗时：5ms
+2021-03-15 12:01:11.146|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24120|ass-core-ac121033-448828-24120|ass-core-ac121033-448828-24121|com.smy.smyx.rtm.client.interface
+Call.interfaceCallInner():248 - {"msgType":"interfaceCall","callCostTime":8,"consumerSysCode":"ass-core","sysIp":"172.18.16.4","callResult":"success"}
+2021-03-15 12:01:11.232|INFO |common-pool-5||||||com.smy.pcs.chn.sdk.utils.ChannelHttpUtil.execute():377 - httpResponse status = 200, body = {"result":"0","result_string":"OK","contract_no":"202103150****67675","token":""}
+2021-03-15 12:01:11.237|INFO |taskExecutor-140||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelLogServiceImpl.insert success ,耗时：4ms
+2021-03-15 12:01:11.240|INFO |common-pool-5||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.save success ,耗时：4ms
+2021-03-15 12:01:11.240|INFO |common-pool-5||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.save success ,耗时：4ms
+2021-03-15 12:01:11.240|INFO |common-pool-5||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():76 - 结束静默签约：C011806260027420153
+2021-03-15 12:01:11.240|INFO |common-pool-5||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardSilentSignFacadeImpl.silentSign success ,耗时：527ms
+2021-03-15 12:01:11.247|INFO |common-pool-6||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.findOneByMap success ,耗时：7ms
+2021-03-15 12:01:11.247|INFO |common-pool-6||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():62 - 开始静默签约：C011806260027420154
+2021-03-15 12:01:11.250|INFO |common-pool-6||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelInfoServiceImpl.getConfigInfo success ,耗时：3ms
+2021-03-15 12:01:11.251|INFO |common-pool-6||||||com.smy.pcs.chn.sdk.utils.ChannelHttpUtil.httpPostWithForm():276 - reqUrl = https://www.dxmpay.com/cashdesk/service/easypayapi/silentsign formMap = {card_name=+v0gBdKyTK34jcP1acDqSA==,
+card_no=20of68DAGRJ5sZ/Z53I0IGxu3x/Qm+qNTvc7uIb529E=, card_type=2, encrypt_method=1, id_no=A+k/t+hMEluHtClo2GeY0nNawWT3JvXRoRXu22CHhVw=, id_type=1, input_charset=1, phone=ecH2mMIdo0IZXaCbvagg3Q==, service_code=2, sign=3674ba4c7631cd77
+72db4a2942cad04f, sign_method=1, sp_no=1002933811, version=1}
+2021-03-15 12:01:11.252|INFO |taskExecutor-150|f4a73cbb44cbb506|||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelLogServiceImpl.insert success ,耗时：2ms
+...skipping...
+2021-03-15 12:01:11.582|INFO |common-pool-7||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():76 - 结束静默签约：C011806260027396218
+2021-03-15 12:01:11.582|INFO |common-pool-7||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardSilentSignFacadeImpl.silentSign success ,耗时：493ms
+2021-03-15 12:01:11.582|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24232|ass-core-ac121033-448828-24232|ass-core-ac121033-448828-24233|com.smy.pcs.handler.impl.aibank.A
+iBankHandlerAccountImpl.getAccountStatus():429 - getAccountStatus 上送参数: SecondAccountQueryReq(super=SecondAccountAbstractionReq(coopCode=aiBank, custNo=160014726994, idNo=460004198****0121X), balanceFlag=null)
+2021-03-15 12:01:11.585|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24232|ass-core-ac121033-448828-24232|ass-core-ac121033-448828-24233|com.smy.pcs.handler.impl.aibank.A
+iBankHandlerAccountImpl.getAccountStatus():450 - getAccountStatus 响应参数: {"status":"F","msg":"账户未开通，请先开通还款账户"}
+2021-03-15 12:01:11.585|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24232|ass-core-ac121033-448828-24232|ass-core-ac121033-448828-24233|com.smy.framework.core.intercepto
+r.ServiceInterceptor.invoke():68 - 交易：AiBankServiceImpl.getAccountStatus success ,耗时：3ms
+2021-03-15 12:01:11.585|INFO |DubboServerHandler-172.18.16.4:28741-thread-225|074643ac740abbb1|172.18.16.51|ass-core-ac121033-448828-24232|ass-core-ac121033-448828-24232|ass-core-ac121033-448828-24233|com.smy.smyx.rtm.client.interface
+Call.interfaceCallInner():248 - {"msgType":"interfaceCall","callCostTime":3,"consumerSysCode":"ass-core","sysIp":"172.18.16.4","callResult":"success"}
+2021-03-15 12:01:11.587|INFO |common-pool-0||||||com.smy.pcs.chn.sdk.utils.ChannelHttpUtil.execute():377 - httpResponse status = 200, body = {"result":"0","result_string":"OK","contract_no":"202103150****66863","token":""}
+2021-03-15 12:01:11.589|INFO |common-pool-4||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.findOneByMap success ,耗时：7ms
+2021-03-15 12:01:11.589|INFO |common-pool-4||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():62 - 开始静默签约：C011806260027396220
+2021-03-15 12:01:11.590|INFO |taskExecutor-160|878d3489180af9f3|||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelLogServiceImpl.insert success ,耗时：3ms
+2021-03-15 12:01:11.593|INFO |common-pool-4||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：ChannelInfoServiceImpl.getConfigInfo success ,耗时：4ms
+2021-03-15 12:01:11.593|INFO |common-pool-4||||||com.smy.pcs.chn.sdk.utils.ChannelHttpUtil.httpPostWithForm():276 - reqUrl = https://www.dxmpay.com/cashdesk/service/easypayapi/silentsign formMap = {card_name=hV8YC7a3jNHRfuJNA5+Q0g==,
+card_no=wIzXkoZmDjWxrOq26ERYmy8whAj03OBKmAhJUuj6ecs=, card_type=2, encrypt_method=1, id_no=9YmAsaYnrzkvMzitZY0uSbIWtalcJ3UkMWq9XXYGM7k=, id_type=1, input_charset=1, phone=P1Mts4IdECLPyRg9QVC7qg==, service_code=2, sign=8cc930cf13c82605
+dd8abbeb00a9f87d, sign_method=1, sp_no=1002933811, version=1}
+2021-03-15 12:01:11.595|INFO |common-pool-0||||||com.smy.framework.core.interceptor.ServiceInterceptor.invoke():68 - 交易：CardValidateResultServiceImpl.save success ,耗时：5ms
+2021-03-15 12:01:11.595|INFO |common-pool-0||||||com.smy.pcs.service.impl.CardSilentSignFacadeImpl.silentSign():76 - 结束静默签约：C011806260027396218

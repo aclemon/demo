@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.RedisScript;
 import org.springframework.scripting.ScriptSource;
@@ -28,8 +27,8 @@ public class RedisTest {
     private StringRedisTemplate stringRedisTemplate;//lua脚本路径
 
 
-    @Resource
-    private RedisCacheManager redisCacheManager;//
+//    @Resource
+//    private RedisCacheManager redisCacheManager;
 
 
     public static final StringBuilder USER_AIMS_GOLD_LUA = new StringBuilder();
@@ -104,9 +103,9 @@ public class RedisTest {
         RedisScript<List> redisScript = getRedisScript(List.class);
         List<T> acquire = stringRedisTemplate.execute(redisScript,
                 ImmutableList.of("asd:asdasd"),
-                "acquire", "", "1");
+                "acquire", "123", "1");
         Console.log("=>" + acquire);
-//        Console.log("=>" + acquire.get(1));
+
     }
 
     private static <T> RedisScript<T> getRedisScript(Class<T> resultType) {

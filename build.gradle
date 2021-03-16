@@ -58,6 +58,8 @@ dependencies {
 //    annotationTestProcessor 'org.projectlombok:lombok:1.18.10'
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
+// https://mvnrepository.com/artifact/com.github.erizo.gradle/jcstress-gradle-plugin
+    implementation group: 'com.github.erizo.gradle', name: 'jcstress-gradle-plugin', version: '0.8.0'
 
 
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.13'

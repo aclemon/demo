@@ -27,7 +27,7 @@ local function acquire(key, cert_id, permits)
     --- 首次创建时，令牌数量为permits，满足第一次请求需要
     local local_curr_permits = curr_permits;
     local result = {};
-    if (local_curr_permits - permits > 0) then
+    if (local_curr_permits - permits >= 0) then
         redis.pcall("HSET", key, "curr_permits", local_curr_permits - permits);
         result[1] = local_curr_permits - permits;
         result[2] = redis_cert_id;
