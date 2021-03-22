@@ -5,6 +5,7 @@ import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.exceptions.ValidateException;
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.Console;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ReflectUtil;
@@ -18,11 +19,10 @@ import com.example.util.PaymentJsonUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.lang.reflect.Field;
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.concurrent.*;
 
 /**
@@ -44,8 +44,9 @@ public class TestHUTOOL {
     private static final String NO_CONTRACT = "38602";
 
     public static void main(String[] args) throws InterruptedException {
-//        Console.log("testA =>" + testA);
-        testLog();
+//        testInt();
+        testFileUtil();
+//        testLog();
 //        testExceptionUtil();
 //        testStrUtil();
 //        testRunTime();
@@ -65,6 +66,20 @@ public class TestHUTOOL {
 //        testSub();
 //        testSlfj();
 //        testThread();
+    }
+
+    private static void testFileUtil() {
+//        List<String> strings = FileUtil.readUtf8Lines("test_mu.lua");
+        String a = "a.txt";
+        String fileRoute = "/data/";
+        String fullPath = fileRoute + a;
+
+        File touch = FileUtil.touch(fullPath);
+
+        List<String> strings = Arrays.asList("aaa", "qwer");
+
+        FileUtil.appendUtf8Lines(strings, touch);
+
     }
 
     private static void testLog() {
@@ -136,6 +151,14 @@ public class TestHUTOOL {
         Integer b = 129;
         boolean te = a == b;
         Console.log("ab=>" + te);
+
+        int i = 1;
+//        string strValue = i.ToString("0000000#");
+
+//        String format = StrUtil.format("{0:00000000}", i);
+
+        String last = StrUtil.subSufByLength("0000" + (i + 1), 4);
+        log.info(last);
     }
 
 

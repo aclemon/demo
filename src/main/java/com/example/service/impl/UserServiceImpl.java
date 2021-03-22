@@ -1,10 +1,15 @@
 package com.example.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.dao.UserDao;
 import com.example.entity.User;
 import com.example.service.UserService;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * (User)表服务实现类
@@ -14,5 +19,19 @@ import org.springframework.stereotype.Service;
  */
 @Service("userService")
 public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
+
+    @Override
+    public List<User> getUserListBigData(String sqlSelect, List<Long> subDeptIdList) {
+        List<User> appUserEntities = new ArrayList<>();
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select(sqlSelect);
+        queryWrapper.eq("status", 0);
+        queryWrapper.eq("del_flag", 0);
+        queryWrapper.in("dept_id", subDeptIdList);
+        //流式条件查询
+        this.baseMapper.getUserListBigData(queryWrapper, resultContext -> Optional.ofNullable(resultContext.getResultObject())
+                .ifPresent(appUserEntities::add));
+        return appUserEntities;
+    }
 
 }

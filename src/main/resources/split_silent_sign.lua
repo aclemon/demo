@@ -19,6 +19,11 @@ local function acquire(key, cert_id, permits)
     local curr_permits = tonumber(rate_limit_info[1]);
     local max_permits = tonumber(rate_limit_info[2]);
     local redis_cert_id = rate_limit_info[3];
+    --    local result = {};
+    --    result[1] = curr_permits
+    --    result[2] = max_permits
+    --    result[3] = redis_cert_id
+    --    return result;
 
     --- 如果获取令牌的时候最大令牌数不存在，说明这个令牌桶已经被删除复位了，忽略本次请求，认为可以获得令牌
     if (max_permits == nil) then
@@ -38,6 +43,7 @@ local function acquire(key, cert_id, permits)
             --- 可能为负数
             result[1] = local_curr_permits - permits;
             result[2] = redis_cert_id;
+
         else
             redis.pcall("HMSET", key, "curr_permits", max_permits, "cert_id", cert_id);
             result[1] = max_permits;
@@ -47,6 +53,40 @@ local function acquire(key, cert_id, permits)
 
     return result;
 end
+
+--local function acquire(key, cert_id, permits)
+--    local rate_limit_info = redis.pcall("HMGET", key, "curr_permits", "max_permits", "cert_id");
+--    local curr_permits = tonumber(rate_limit_info[1]);
+--    local max_permits = tonumber(rate_limit_info[2]);
+--    local redis_cert_id = rate_limit_info[3];
+--
+--    --- 如果获取令牌的时候最大令牌数不存在，说明这个令牌桶已经被删除复位了，忽略本次请求，认为可以获得令牌
+--    if (max_permits == nil) then
+--        return 1;
+--    end
+--    --- 首次创建时，令牌数量为permits，满足第一次请求需要
+--    local local_curr_permits = curr_permits;
+--    local result = {};
+--    if (local_curr_permits - permits >= 0) then
+--        redis.pcall("HSET", key, "curr_permits", local_curr_permits - permits);
+--        result[1] = local_curr_permits - permits;
+--        result[2] = redis_cert_id;
+--    else
+--        --- 否则令牌数重置更新cert_id
+--        if (cert_id == "") then
+--            redis.pcall("HMSET", key, "curr_permits", local_curr_permits - permits);
+--            --- 可能为负数
+--            result[1] = local_curr_permits - permits;
+--            result[2] = redis_cert_id;
+--        else
+--            redis.pcall("HMSET", key, "curr_permits", max_permits, "cert_id", cert_id);
+--            result[1] = max_permits;
+--            result[2] = cert_id;
+--        end
+--    end
+--
+--    return result;
+--end
 
 
 
