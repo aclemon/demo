@@ -47,6 +47,7 @@ public class UserController extends ApiController {
     static {
         redisScript = getRedisScript(List.class);
     }
+    
 
     /**
      * 调试高并发

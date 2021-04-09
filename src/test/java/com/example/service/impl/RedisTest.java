@@ -53,6 +53,14 @@ public class RedisTest {
 
 
     @Test
+    public void testRedisTemplate() {
+//        Long sdf = stringRedisTemplate.opsForZSet().remove("123", "123", "sdf");
+//        Console.log(sdf);
+        String key = stringRedisTemplate.opsForList().leftPop("123");
+        Console.log(key);
+    }
+
+    @Test
     public void testNN() {
 //        redisCacheManager.
     }

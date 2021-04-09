@@ -17,7 +17,8 @@ import org.apache.ibatis.session.ResultHandler;
 @Mapper
 public interface UserDao extends BaseMapper<User> {
 
-    @Select("select ${ew.sqlSelect} from t_app_usermlq t ${ew.customSqlSegment}")
+    //    ew.customSqlSegment又是啥，该值是WHERE + sql语句
+    @Select("select ${ew.sqlSelect} from system_user t ${ew.customSqlSegment}")
     @Options(resultSetType = ResultSetType.FORWARD_ONLY, fetchSize = 10)
     @ResultType(User.class)
     void getUserListBigData(@Param(Constants.WRAPPER) QueryWrapper<User> wrapper, ResultHandler<User> handler);

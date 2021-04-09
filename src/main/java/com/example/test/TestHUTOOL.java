@@ -1,11 +1,11 @@
 package com.example.test;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.exceptions.ValidateException;
-import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.Console;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.ReflectUtil;
@@ -19,7 +19,6 @@ import com.example.util.PaymentJsonUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
-import java.io.File;
 import java.lang.reflect.Field;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -44,8 +43,11 @@ public class TestHUTOOL {
     private static final String NO_CONTRACT = "38602";
 
     public static void main(String[] args) throws InterruptedException {
+
+        testSub();
 //        testInt();
-        testFileUtil();
+//        testStrUtil();
+//        testFileUtil();
 //        testLog();
 //        testExceptionUtil();
 //        testStrUtil();
@@ -69,16 +71,19 @@ public class TestHUTOOL {
     }
 
     private static void testFileUtil() {
+
+        Car car = new Car();
+        System.out.println(car);
 //        List<String> strings = FileUtil.readUtf8Lines("test_mu.lua");
-        String a = "a.txt";
-        String fileRoute = "/data/";
-        String fullPath = fileRoute + a;
-
-        File touch = FileUtil.touch(fullPath);
-
-        List<String> strings = Arrays.asList("aaa", "qwer");
-
-        FileUtil.appendUtf8Lines(strings, touch);
+//        String a = "a.txt";
+//        String fileRoute = "/data/";
+//        String fullPath = fileRoute + a;
+//
+//        File touch = FileUtil.touch(fullPath);
+//
+//        List<String> strings = Arrays.asList("aaa", "qwer");
+//
+//        FileUtil.appendUtf8Lines(strings, touch);
 
     }
 
@@ -90,9 +95,12 @@ public class TestHUTOOL {
 
 
         try {
-            throw new ValidateException("验证异常asdasd");
+
+            for (int i = 0; i < 10; i++) {
+                throw new ValidateException("验证异常asdasd");
+            }
         } catch (ValidateException e) {
-//            e.printStackTrace();
+            e.printStackTrace();
             String message = ExceptionUtil.getMessage(e);
             log.info(message);
             log.error("异常信息:", e);
@@ -102,6 +110,17 @@ public class TestHUTOOL {
 
     private static void testStrUtil() {
 
+
+        String a = "王惠东|6212260509003753183||13934037682|201811271816291836408934347";
+        System.out.print(a);
+        System.out.print('\n');
+        System.out.print(a);
+
+//        String[] split = StrUtil.split(a, "|");
+//        for (int i = 0; i < split.length; i++) {
+//            String s = split[i];
+//            log.info(s);
+//        }
 
     }
 
@@ -168,7 +187,15 @@ public class TestHUTOOL {
         LinkedList<Car> cars = new LinkedList<>();
         cars.add(car1);
         cars.add(car2);
-
+        int i = 1;
+        try {
+            i++;
+        } catch (Exception e) {
+            log.error("异常信息", e);
+        } finally {
+            i = 5;
+        }
+        log.info("整数I:{}", i);
         for (Car car : cars) {
             Console.log("=>" + car);
         }
@@ -177,22 +204,23 @@ public class TestHUTOOL {
 //        cars.sort(Comparator.comparing(Car::getNum));
 //        Console.log("sort=>" + cars);
 
+        Console.log("list=>" + cars);
+        // 比较器
+        Comparator<Car> comparator = new Comparator<Car>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                return o2.getNum().compareTo(o1.getNum());
+            }
+        };
 
-//        // 比较器
-//        Comparator<Car> comparator = new Comparator<Car>() {
-//            @Override
-//            public int compare(Car o1, Car o2) {
-//                return o2.getNum().compareTo(o1.getNum());
-//            }
-//        };
-//
+
 //        LinkedList<Car> cars1 = new LinkedList<>();
 //        Console.log("ccc=>" + CollUtil.isNotEmpty(cars1));
 //        Console.log("ccc=>" + cars1);
-//
-//        List<Car> sort = CollUtil.sort(cars, comparator);
-//        Console.log("list=>" + cars);
-//        Console.log("sort=>" + sort);
+
+        List<Car> sort = CollUtil.sort(cars, comparator);
+
+        Console.log("sort=>" + sort);
 
     }
 
@@ -319,15 +347,38 @@ public class TestHUTOOL {
 
 
     private static void testSub() {
-        String a = "01";
-        String b = "1";
-        String date = "C632101170005670001";
-        Console.log("date.substring(3,9);=>" + date.substring(3, 9));
+//        String a = "01";
+//        String b = "1";
+//        String date = "C632101170005670001";
+//        Console.log("date.substring(3,9);=>" + date.substring(3, 9));
+//
+//
+//        Console.log("=>" + a.substring(a.length() - 1));
+//        Console.log("=>" + b.substring(b.length() - 1));
 
+//        String cc = "000010_20180606_0001.txt";
+//        String sub = StrUtil.sub(cc, 7, 20).replace("_", "");
+//        long l = Long.parseLong(sub);
+//        log.info(sub);
+//        System.out.println(l);
 
-        Console.log("=>" + a.substring(a.length() - 1));
-        Console.log("=>" + b.substring(b.length() - 1));
+//        String t1 = "001773_20211206";
+//        String t2 = "001773_20201206";
+//        int result = t1.compareTo(t2);
+//
+//        String[] aa = "aaa|bbb|ccc".split("\\|");
+//
+//
+//        System.out.println(result);
+//        Console.log(aa);
+//        Assert.assertEquals(1, result);
+
+//        2147483648
+        String resp = "C20210308172948X82100040614";
+        String oldCertId = StrUtil.sub(resp, 17, 27);
+        int i = Integer.parseInt(oldCertId);
+        log.info(oldCertId);
+        Console.log(i);
+
     }
-
-
 }
