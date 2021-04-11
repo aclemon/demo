@@ -20,7 +20,6 @@ import java.util.List;
  * @Date: 2021/2/26
  */
 @SpringBootTest
-
 public class RedisTest {
 
     @Resource
