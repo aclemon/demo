@@ -1,39 +1,32 @@
 package com.example.test;
 
-import cn.hutool.core.lang.Console;
+import com.example.entity.User;
+import com.example.service.impl.UserResultHandler;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.IOException;
+import java.util.List;
 
 public class TestB {
     public static final String test = "TEST_B";
     public static final String TEST_AB = "TEST_AB";
     public static final String TEST_MAIN = "TEST_MAIN";
 
-    public static void main(String[] args) {
-        Console.log("我爱你=>" + "Main");
-//        System.out.println("hello world");
-//        int a = 12;
-//        int b = 10;
-//        int c = b + 2;
-//        System.out.println(a == c);
-//        List<String> list = new ArrayList<String>();
-//        list.add("aaa1");
-//        list.add("bbb1");
-//        list.add("ccc1");
-//        list.add("aaa2");
-//        //返回一个String以,分隔
-//        String message = list.stream()
-//                .filter(record -> record.startsWith("aaa"))
-//                .map(record -> {
-//                    return "<" + record + ">";
-//                }).collect(Collectors.joining(","));
-//        //.collect(Collectors.toList());//返回一个List<String>
-//        System.out.println(message);
-//
-//        Console.log("Cc=>" + ChannelPaymentEnum.ALI_PAY_APP.name);
-//        Console.log("Cc=>" + ChannelPaymentEnum.ALI_PAY_APP.bit);
-//        Console.log("Cc=>" + ChannelPaymentEnum.ALI_PAY_APP.desc);
-//
-//
-//        Console.log("Cc=>" + Objects.requireNonNull(ChannelPaymentEnum.valueOf(3)).getName());
+    public static void main(String[] args) throws IOException {
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        SqlSessionFactory sqlSessionFactory = builder.build(Resources.getResourceAsStream("mybatis-config.xml"));
+        System.out.println("sqlSessionFactory:" + sqlSessionFactory);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        // 正常查询
+        List<User> userList5 = sqlSession.selectList("selectUser");
+        // 流式查询
+        UserResultHandler userResultHandler = new UserResultHandler(100);
+        sqlSession.select("selectUser", userResultHandler);
+        userResultHandler.end();
+        sqlSession.close();
 
 
     }

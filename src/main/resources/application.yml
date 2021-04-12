@@ -3,9 +3,17 @@ nacos:
     auto-refresh: true
     data-id: gradle_demo.yaml
     password: nacos
-    server-addr: 120.24.36.55:8848
     username: nacos
+    server-addr: 34.92.200.232:8848
 spring:
+  # 引擎模板配置
+  thymeleaf:
+    cache: false # 关闭缓存
+    mode: HTML # 去除htm5严格校验
+    prefix: classpath:/templates/ # 指定 thymeleaf 模板路径
+    encoding: UTF-8 # 指定字符集编码
+  mvc:
+    static-path-pattern: /static/** # js ,css 等静态文件路径
   application:
     name: nacos-demo
   cache:
@@ -29,6 +37,7 @@ spring:
         min-idle: 0
     redisson:
       file: classpath:redisson.yml
+
 
 
 

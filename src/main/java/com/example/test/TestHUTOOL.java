@@ -374,11 +374,16 @@ public class TestHUTOOL {
 //        Assert.assertEquals(1, result);
 
 //        2147483648
-        String resp = "C20210308172948X82100040614";
-        String oldCertId = StrUtil.sub(resp, 17, 27);
-        int i = Integer.parseInt(oldCertId);
-        log.info(oldCertId);
-        Console.log(i);
+        try {
+            String resp = "C20210308172948X82100040619";
+            String oldCertId = StrUtil.sub(resp, 17, 27);
+            int i = Integer.parseInt(oldCertId);
+            log.info(oldCertId);
+            Console.log(i);
+        } finally {
+            log.info("热部署");
+        }
+
 
     }
 }
