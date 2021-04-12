@@ -36,9 +36,12 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         // 流式条件查询
         ResultHandler<User> userResultHandler = resultContext -> {
             log.info("查询结果,{}", resultContext);
+
             Optional.ofNullable(resultContext.getResultObject()).ifPresent(appUserEntities::add);
         };
+
         this.baseMapper.getUserListBigData(queryWrapper, userResultHandler);
+
         return appUserEntities;
     }
 
