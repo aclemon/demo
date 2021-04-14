@@ -55,7 +55,7 @@ public class RedisTest {
     public void testRedisTemplate() {
 //        Long sdf = stringRedisTemplate.opsForZSet().remove("123", "123", "sdf");
 //        Console.log(sdf);
-        String key = stringRedisTemplate.opsForList().leftPop("123");
+        String key = stringRedisTemplate.opsForList().leftPop("PCS:redis_file_silent_sign_list_re");
         Console.log(key);
     }
 

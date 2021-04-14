@@ -13,6 +13,7 @@ import cn.hutool.core.util.StrUtil;
 import com.example.domain.dto.CarDto;
 import com.example.domain.dto.ScheduleSilentSignModel;
 import com.example.dto.Car;
+import com.example.dto.Person;
 import com.example.dto.TestPojo;
 import com.example.enums.ChannelPaymentEnum;
 import com.example.util.PaymentJsonUtil;
@@ -41,8 +42,11 @@ public class TestHUTOOL {
     private static TestA testA;
 
     private static final String NO_CONTRACT = "38602";
+    public static final String AA = "asd";
+
 
     public static void main(String[] args) throws InterruptedException {
+
 
         testSub();
 //        testInt();
@@ -375,6 +379,11 @@ public class TestHUTOOL {
 
 //        2147483648
         try {
+            DateTime yyyyMMddHHmmss = DateUtil.parse("20210413060000", "yyyyMMddHHmmss");
+            Person person = new Person();
+//            person.setBirthday(yyyyMMddHHmmss);
+            person.setBirthday(null);
+            Console.log("Person:{}", person);
             String resp = "C20210308172948X82100040619";
             String oldCertId = StrUtil.sub(resp, 17, 27);
             int i = Integer.parseInt(oldCertId);

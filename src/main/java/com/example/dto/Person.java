@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 /**
  * @Author: w00990
@@ -20,4 +21,5 @@ public class Person {
     private String username;
     @NotBlank(message = "password")
     private String password;
+    private Date birthday;
 }
