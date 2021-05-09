@@ -20,5 +20,5 @@ public interface UserService extends IService<User> {
      * @param subDeptIdList
      * @return
      */
-    public List<User> getUserListBigData(String sqlSelect, List<Long> subDeptIdList);
+    List<User> getUserListBigData(String sqlSelect, List<Long> subDeptIdList);
 }

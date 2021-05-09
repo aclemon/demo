@@ -4,7 +4,17 @@ nacos:
     data-id: gradle_demo.yaml
     password: nacos
     username: nacos
-    server-addr: 34.92.200.232:8848
+    server-addr: 120.24.36.55:8848
+
+rocketmq:
+  name-server: 120.24.36.55:9876
+  producer:
+    group: spring-boot-group
+    retry-times-when-send-failed: 10
+    send-message-timeout: 10000
+
+
+
 spring:
   # 引擎模板配置
   thymeleaf:
@@ -23,11 +33,13 @@ spring:
       enabled: true
   freemarker:
     checkTemplateLocation: false
+#    redis快照关闭了导致不能持久化的问题
+#  stop-writes-on-bgsave-error no
   redis:
-    database: 0
-    password: 987654321
     host: 120.24.36.55
     port: 6379
+    database: 0
+    password: 987654321
     timeout: 2000
     lettuce:
       pool:

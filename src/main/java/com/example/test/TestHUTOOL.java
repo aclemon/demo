@@ -47,7 +47,7 @@ public class TestHUTOOL {
         testSub();
 //        testInt();
 //        testStrUtil();
-//        testFileUtil();
+        testFileUtil();
 //        testLog();
 //        testExceptionUtil();
 //        testStrUtil();
@@ -375,7 +375,7 @@ public class TestHUTOOL {
 
 //        2147483648
         try {
-            String resp = "C20210308172948X82100040619";
+            String resp = "C20210308172948X82100040621";
             String oldCertId = StrUtil.sub(resp, 17, 27);
             int i = Integer.parseInt(oldCertId);
             log.info(oldCertId);
