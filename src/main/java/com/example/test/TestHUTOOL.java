@@ -47,8 +47,18 @@ public class TestHUTOOL {
 
     public static void main(String[] args) throws InterruptedException {
 
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("testSS");
+        testSS(strings);
 
-        testSub();
+
+        Long aa = 1L;
+
+        boolean bb = aa == 1L;
+        Console.log("=>" + bb);
+        Console.log("strings=>" + strings);
+//        testStr2();
+//        testSub();
 //        testInt();
 //        testStrUtil();
 //        testFileUtil();
@@ -72,6 +82,44 @@ public class TestHUTOOL {
 //        testSub();
 //        testSlfj();
 //        testThread();
+    }
+
+    private static void testSS(ArrayList test) {
+//        test.add("asdf");
+        ArrayList<String> strings = new ArrayList<>();
+        strings.add("ssss");
+        test = strings;
+        Console.log("test=>" + test);
+        List<String> list = new ArrayList<String>();
+        list.add("保护环境");  //向列表中添加数据
+        list.add("爱护地球");  //向列表中添加数据
+        list.add("从我做起");  //向列表中添加数据
+        List<String> list1 = new ArrayList<String>();
+        list1.add("保护环境");  //向列表中添加数据
+        list1.add("爱护地球");  //向列表中添加数据
+        boolean ret = list.removeAll(list1);  //从list中移除与list1相同的元素
+        Iterator<String> it = list.iterator();  //创建迭代器
+        while (it.hasNext()) {  //循环遍历迭代器
+            System.out.println(it.next());  //输出集合中元素
+        }
+    }
+
+    private static void testStr2() {
+        boolean flag = false;
+        Console.log("=>" + flag);
+        String aa = "123456";
+        String s = StrUtil.replace(aa, 1, 2, 's');
+        Console.log("s=>" + s);
+
+        String substring = aa.substring(5);
+        Console.log("substring=>" + substring);
+        flag = aa.indexOf('#') == -1;
+        Console.log("=>" + flag);
+
+        int bb = 989;
+        Console.log("=>" + bb % 16);
+        int i = bb & 15;
+        Console.log("=>" + i);
     }
 
     private static void testFileUtil() {
@@ -385,6 +433,8 @@ public class TestHUTOOL {
             person.setBirthday(null);
             Console.log("Person:{}", person);
             String resp = "C20210308172948X82100040619";
+            log.info("ahs:{}", resp.hashCode());
+            HashMap<Object, Object> objectObjectHashMap = new HashMap<>();
             String oldCertId = StrUtil.sub(resp, 17, 27);
             int i = Integer.parseInt(oldCertId);
             log.info(oldCertId);

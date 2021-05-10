@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.example.entity.User;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.ResultType;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.mapping.ResultSetType;
 import org.apache.ibatis.session.ResultHandler;
 
@@ -14,7 +17,7 @@ import org.apache.ibatis.session.ResultHandler;
  * @author makejava
  * @since 2021-01-28 14:28:19
  */
-@Mapper
+//@Mapper
 public interface UserDao extends BaseMapper<User> {
 
     //    ew.customSqlSegment又是啥，该值是WHERE + sql语句

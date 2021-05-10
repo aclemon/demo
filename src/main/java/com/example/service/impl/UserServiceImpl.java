@@ -1,7 +1,6 @@
 package com.example.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.dao.UserDao;
 import com.example.entity.User;
 import com.example.service.UserService;
@@ -21,7 +20,7 @@ import java.util.Optional;
  */
 @Slf4j
 @Service("userService")
-public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
+public class UserServiceImpl extends WServiceImpl<UserDao, User> implements UserService {
 
     @Override
     public List<User> getUserListBigData(String sqlSelect, List<Long> subDeptIdList) {

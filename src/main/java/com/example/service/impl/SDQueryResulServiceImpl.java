@@ -26,15 +26,17 @@ public class SDQueryResulServiceImpl extends SDQueryResultHandler implements ISD
     public void batchSDHandle() {
         String sql = "select * from system_user";
         SDQueryResulServiceImpl sdQueryResulService = new SDQueryResulServiceImpl();
-
-        sdQueryResulService.setBatchSize(2);//批量处理数据量  根据实际情况设置
+        //批量处理数据量  根据实际情况设置
+        sdQueryResulService.setBatchSize(2);
         //1.按批次处理查询结果集数据
         sdQueryWrapper.streamDataDynamicHandle(sql, sdQueryResulService);
         //2.处理最后一个批次的查询结果数据
         sdQueryResulService.lastSDHandle();
     }
 
-    // 在这里可以对你获取到的批量结果数据进行需要的业务处理
+    /**
+     * 在这里可以对你获取到的批量结果数据进行需要的业务处理
+     */
     @Override
     public void handle() {
         try {

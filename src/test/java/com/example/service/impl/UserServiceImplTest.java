@@ -215,4 +215,16 @@ class UserServiceImplTest {
         Console.log("list=>" + page1.getRecords());
     }
 
+
+    @Test
+    public void testInsert() {
+
+        User ahuan = User.builder()
+                .id("1")
+                .username("ahuan")
+                .build();
+        final boolean b = userService.saveOrUpdate(ahuan);
+        Console.log("b=>" + b);
+    }
+
 }

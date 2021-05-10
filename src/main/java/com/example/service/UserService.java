@@ -1,6 +1,5 @@
 package com.example.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.entity.User;
 
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
  * @author makejava
  * @since 2021-01-28 14:28:19
  */
-public interface UserService extends IService<User> {
+public interface UserService extends WService<User> {
 
     /**
      * 查询

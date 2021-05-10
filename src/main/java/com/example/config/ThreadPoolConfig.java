@@ -1,6 +1,5 @@
 package com.example.config;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
@@ -11,7 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
  */
 @Configuration
 @EnableAsync
-@Slf4j
+//@Slf4j
 public class ThreadPoolConfig {
 
     static final int BLOCKING_QUEUE_CAPACITY = 5000;
@@ -24,9 +23,9 @@ public class ThreadPoolConfig {
 
     static final int MAXIMUM_POOL_SIZE = 50;
 
-    static {
-        log.info("[availableProcessors]={},corePoolSize={},maximumPoolSize={}", AVAILABLE_PROCESSORS, CORE_POOL_SIZE, MAXIMUM_POOL_SIZE);
-    }
+//    static {
+//        log.info("[availableProcessors]={},corePoolSize={},maximumPoolSize={}", AVAILABLE_PROCESSORS, CORE_POOL_SIZE, MAXIMUM_POOL_SIZE);
+//    }
 
     /**
      * 通用线程池配置

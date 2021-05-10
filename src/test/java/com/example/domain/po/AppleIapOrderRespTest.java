@@ -1,6 +1,5 @@
 package com.example.domain.po;
 
-import cn.hutool.core.lang.Console;
 import com.example.mapper.AppleIapMapper;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -9,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.ser.ZonedDateTimeSerializer;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -95,6 +95,7 @@ import java.time.format.DateTimeFormatter;
  * @Date: 2020/12/14
  */
 @SpringBootTest
+@Slf4j
 class AppleIapOrderRespTest {
     @Resource
     private AppleIapMapper appleIapMapper;
@@ -179,10 +180,11 @@ class AppleIapOrderRespTest {
         timeModule.addSerializer(ZonedDateTime.class, new ZonedDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss VV")));
         mapper.registerModule(timeModule);
         VerifyReceiptResp serverNotifyRefundResp1 = mapper.readValue(appleJson, VerifyReceiptResp.class);
-        Console.log("VerifyReceiptResp=>" + serverNotifyRefundResp1);
+//        Console.log("VerifyReceiptResp=>" + serverNotifyRefundResp1);
+        log.info("VerifyReceiptResp=>{}", serverNotifyRefundResp1);
 
-        AppleIapOrderResp appleIapOrderResp = appleIapMapper.receiptToOrder(serverNotifyRefundResp1);
-        Console.log("appleIapOrderResp=>" + appleIapOrderResp);
+//        AppleIapOrderResp appleIapOrderResp = appleIapMapper.receiptToOrder(serverNotifyRefundResp1);
+//        Console.log("appleIapOrderResp=>" + appleIapOrderResp);
     }
 
 }

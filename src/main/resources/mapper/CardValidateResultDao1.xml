@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.CardValidateResultDao">
+
+    <resultMap type="com.example.entity.CardValidateResult" id="CardValidateResultMap">
+        <result property="certId" column="cert_id" jdbcType="VARCHAR"/>
+        <result property="merchantId" column="merchant_id" jdbcType="VARCHAR"/>
+        <result property="custNo" column="cust_no" jdbcType="VARCHAR"/>
+        <result property="custName" column="cust_name" jdbcType="VARCHAR"/>
+        <result property="idType" column="id_type" jdbcType="VARCHAR"/>
+        <result property="idNo" column="id_no" jdbcType="VARCHAR"/>
+        <result property="bankCardType" column="bank_card_type" jdbcType="INTEGER"/>
+        <result property="bankCardNo" column="bank_card_no" jdbcType="VARCHAR"/>
+        <result property="cvv" column="cvv" jdbcType="VARCHAR"/>
+        <result property="expiryDate" column="expiry_date" jdbcType="VARCHAR"/>
+        <result property="mobileNo" column="mobile_no" jdbcType="VARCHAR"/>
+        <result property="bankCode" column="bank_code" jdbcType="VARCHAR"/>
+        <result property="bankName" column="bank_name" jdbcType="VARCHAR"/>
+        <result property="validType" column="valid_type" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="channelId" column="channel_id" jdbcType="VARCHAR"/>
+        <result property="channelName" column="channel_name" jdbcType="VARCHAR"/>
+        <result property="channelMerchantId" column="channel_merchant_id" jdbcType="VARCHAR"/>
+        <result property="channelReqSeqno" column="channel_req_seqno" jdbcType="VARCHAR"/>
+        <result property="channelBankCode" column="channel_bank_code" jdbcType="VARCHAR"/>
+        <result property="channelToken" column="channel_token" jdbcType="VARCHAR"/>
+        <result property="agreement" column="agreement" jdbcType="VARCHAR"/>
+        <result property="channelStandby1" column="channel_standby1" jdbcType="VARCHAR"/>
+        <result property="channelStandby2" column="channel_standby2" jdbcType="VARCHAR"/>
+        <result property="channelStandby3" column="channel_standby3" jdbcType="VARCHAR"/>
+        <result property="channelStandby4" column="channel_standby4" jdbcType="VARCHAR"/>
+        <result property="returnCode" column="return_code" jdbcType="VARCHAR"/>
+        <result property="returnMsg" column="return_msg" jdbcType="VARCHAR"/>
+        <result property="standardCode" column="standard_code" jdbcType="VARCHAR"/>
+        <result property="standardMsg" column="standard_msg" jdbcType="VARCHAR"/>
+        <result property="smsStatus" column="sms_status" jdbcType="VARCHAR"/>
+        <result property="verifyStatus" column="verify_status" jdbcType="VARCHAR"/>
+        <result property="validMethod" column="valid_method" jdbcType="VARCHAR"/>
+        <result property="version" column="version" jdbcType="INTEGER"/>
+        <result property="createDatetime" column="create_datetime" jdbcType="TIMESTAMP"/>
+        <result property="updateDatetime" column="update_datetime" jdbcType="TIMESTAMP"/>
+        <result property="mchReqId" column="mch_req_id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="insertFourOrUpdate">
+        insert into rbac.t_card_validate_result(cert_id, merchant_id, cust_no, cust_name, id_type, id_no,
+                                                bank_card_type, bank_card_no, cvv, expiry_date, mobile_no, bank_code,
+                                                bank_name, valid_type, remark, channel_id, channel_name,
+                                                channel_merchant_id, channel_req_seqno, channel_bank_code,
+                                                channel_token, agreement, channel_standby1, channel_standby2,
+                                                channel_standby3, channel_standby4, return_code, return_msg,
+                                                standard_code, standard_msg, sms_status, verify_status, valid_method,
+                                                version, create_datetime, update_datetime, mch_req_id, standby2)
+        values (#{certId}, #{merchantId}, #{custNo}, #{custName}, #{idType}, #{idNo}, #{bankCardType}, #{bankCardNo},
+                #{cvv}, #{expiryDate}, #{mobileNo}, #{bankCode}, #{bankName}, #{validType}, #{remark}, #{channelId},
+                #{channelName}, #{channelMerchantId}, #{channelReqSeqno}, #{channelBankCode}, #{channelToken},
+                #{agreement}, #{channelStandby1}, #{channelStandby2}, #{channelStandby3}, #{channelStandby4},
+                #{returnCode}, #{returnMsg}, #{standardCode}, #{standardMsg}, #{smsStatus}, #{verifyStatus},
+                #{validMethod}, #{version}, #{createDatetime}, #{updateDatetime}, #{mchReqId})
+    </insert>
+
+
+</mapper>
+

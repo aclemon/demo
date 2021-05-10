@@ -1,0 +1,63 @@
+2021-04-26 15:51:50 16960 [Note] 第1步: 对SQL解析优化之后得到的SQL:select count(1) AS `COUNT(1)` from `pcs`.`t_trans_order_info_0` where ((`bank_card_no` = '6222031211001527910') and (`update_datetime` >= '2020-10-01 00:00:00') and (`update_datetime` <= '2020-11-30 23:59:59'))
+2021-04-26 15:51:50 16960 [Note] 第2步：开始解析where中的条件:(`bank_card_no` = '6222031211001527910')
+2021-04-26 15:51:50 16960 [Note] show index from t_trans_order_info_0
+2021-04-26 15:51:50 16960 [Note] show table status like 't_trans_order_info_0'
+2021-04-26 15:51:50 16960 [Note] select count(*) from ( select `bank_card_no` from `t_trans_order_info_0` FORCE INDEX( index_merchant_order_id_merchant_id ) order by merchant_order_id DESC,merchant_id DESC limit 10000) `t_trans_order_info_0` where (`bank_card_no` = '6222031211001527910')
+2021-04-26 15:51:51 16960 [Note] 第3步：表t_trans_order_info_0的行数:23990378,limit行数:10000,得到where条件中(`bank_card_no` = '6222031211001527910')的选择度:10000
+2021-04-26 15:51:51 16960 [Note] 第4步：开始解析where中的条件:(`update_datetime` >= '2020-10-01 00:00:00')
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show table status like 't_trans_order_info_0'
+2021-04-26 15:51:51 16960 [Note] select count(*) from ( select `update_datetime` from `t_trans_order_info_0` FORCE INDEX( index_merchant_order_id_merchant_id ) order by merchant_order_id DESC,merchant_id DESC limit 10000) `t_trans_order_info_0` where (`update_datetime` >= '2020-10-01 00:00:00')
+2021-04-26 15:51:51 16960 [Note] 第5步：表t_trans_order_info_0的行数:23990194,limit行数:10000,得到where条件中(`update_datetime` >= '2020-10-01 00:00:00')的选择度:1
+2021-04-26 15:51:51 16960 [Note] 第6步：开始解析where中的条件:(`update_datetime` <= '2020-11-30 23:59:59')
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show table status like 't_trans_order_info_0'
+2021-04-26 15:51:51 16960 [Note] select count(*) from ( select `update_datetime` from `t_trans_order_info_0` FORCE INDEX( index_merchant_order_id_merchant_id ) order by merchant_order_id DESC,merchant_id DESC limit 10000) `t_trans_order_info_0` where (`update_datetime` <= '2020-11-30 23:59:59')
+2021-04-26 15:51:51 16960 [Note] 第7步：表t_trans_order_info_0的行数:23990194,limit行数:10000,得到where条件中(`update_datetime` <= '2020-11-30 23:59:59')的选择度:10000
+2021-04-26 15:51:51 16960 [Note] 第8步：开始验证 字段bank_card_no是不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Key_name = 'PRIMARY' and Column_name ='bank_card_no' and Seq_in_index = 1
+2021-04-26 15:51:51 16960 [Note] 第9步：字段bank_card_no不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] 第10步：开始验证 字段bank_card_no是不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Key_name = 'PRIMARY' and Column_name ='bank_card_no' and Seq_in_index = 1
+2021-04-26 15:51:51 16960 [Note] 第11步：字段bank_card_no不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] 第12步：开始验证表中是否已存在相关索引。表名:t_trans_order_info_0, 字段名:bank_card_no, 在索引中的位置:1
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Column_name ='bank_card_no' and Seq_in_index =1
+2021-04-26 15:51:51 16960 [Note] 第13步：开始验证 字段update_datetime是不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Key_name = 'PRIMARY' and Column_name ='update_datetime' and Seq_in_index = 1
+2021-04-26 15:51:51 16960 [Note] 第14步：字段update_datetime不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] 第15步：开始验证表中是否已存在相关索引。表名:t_trans_order_info_0, 字段名:update_datetime, 在索引中的位置:2
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Column_name ='update_datetime' and Seq_in_index =2
+2021-04-26 15:51:51 16960 [Note] 第16步：开始输出表t_trans_order_info_0索引优化建议:
+2021-04-26 15:51:51 16960 [Note] Create_Index_SQL：alter table t_trans_order_info_0 add index idx_bank_card_no_update_datetime(bank_card_no,update_datetime)
+2021-04-26 15:51:51 16960 [Note] 第17步: SQLAdvisor结束! 2021-04-26 15:51:50 16960 [Note] 第1步: 对SQL解析优化之后得到的SQL:select count(1) AS `COUNT(1)` from `pcs`.`t_trans_order_info_0` where ((`bank_card_no` = '6222031211001527910') and (`update_datetime` >= '2020-10-01 00:00:00') and (`update_datetime` <= '2020-11-30 23:59:59'))
+2021-04-26 15:51:50 16960 [Note] 第2步：开始解析where中的条件:(`bank_card_no` = '6222031211001527910')
+2021-04-26 15:51:50 16960 [Note] show index from t_trans_order_info_0
+2021-04-26 15:51:50 16960 [Note] show table status like 't_trans_order_info_0'
+2021-04-26 15:51:50 16960 [Note] select count(*) from ( select `bank_card_no` from `t_trans_order_info_0` FORCE INDEX( index_merchant_order_id_merchant_id ) order by merchant_order_id DESC,merchant_id DESC limit 10000) `t_trans_order_info_0` where (`bank_card_no` = '6222031211001527910')
+2021-04-26 15:51:51 16960 [Note] 第3步：表t_trans_order_info_0的行数:23990378,limit行数:10000,得到where条件中(`bank_card_no` = '6222031211001527910')的选择度:10000
+2021-04-26 15:51:51 16960 [Note] 第4步：开始解析where中的条件:(`update_datetime` >= '2020-10-01 00:00:00')
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show table status like 't_trans_order_info_0'
+2021-04-26 15:51:51 16960 [Note] select count(*) from ( select `update_datetime` from `t_trans_order_info_0` FORCE INDEX( index_merchant_order_id_merchant_id ) order by merchant_order_id DESC,merchant_id DESC limit 10000) `t_trans_order_info_0` where (`update_datetime` >= '2020-10-01 00:00:00')
+2021-04-26 15:51:51 16960 [Note] 第5步：表t_trans_order_info_0的行数:23990194,limit行数:10000,得到where条件中(`update_datetime` >= '2020-10-01 00:00:00')的选择度:1
+2021-04-26 15:51:51 16960 [Note] 第6步：开始解析where中的条件:(`update_datetime` <= '2020-11-30 23:59:59')
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show table status like 't_trans_order_info_0'
+2021-04-26 15:51:51 16960 [Note] select count(*) from ( select `update_datetime` from `t_trans_order_info_0` FORCE INDEX( index_merchant_order_id_merchant_id ) order by merchant_order_id DESC,merchant_id DESC limit 10000) `t_trans_order_info_0` where (`update_datetime` <= '2020-11-30 23:59:59')
+2021-04-26 15:51:51 16960 [Note] 第7步：表t_trans_order_info_0的行数:23990194,limit行数:10000,得到where条件中(`update_datetime` <= '2020-11-30 23:59:59')的选择度:10000
+2021-04-26 15:51:51 16960 [Note] 第8步：开始验证 字段bank_card_no是不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Key_name = 'PRIMARY' and Column_name ='bank_card_no' and Seq_in_index = 1
+2021-04-26 15:51:51 16960 [Note] 第9步：字段bank_card_no不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] 第10步：开始验证 字段bank_card_no是不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Key_name = 'PRIMARY' and Column_name ='bank_card_no' and Seq_in_index = 1
+2021-04-26 15:51:51 16960 [Note] 第11步：字段bank_card_no不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] 第12步：开始验证表中是否已存在相关索引。表名:t_trans_order_info_0, 字段名:bank_card_no, 在索引中的位置:1
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Column_name ='bank_card_no' and Seq_in_index =1
+2021-04-26 15:51:51 16960 [Note] 第13步：开始验证 字段update_datetime是不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Key_name = 'PRIMARY' and Column_name ='update_datetime' and Seq_in_index = 1
+2021-04-26 15:51:51 16960 [Note] 第14步：字段update_datetime不是主键。表名:t_trans_order_info_0
+2021-04-26 15:51:51 16960 [Note] 第15步：开始验证表中是否已存在相关索引。表名:t_trans_order_info_0, 字段名:update_datetime, 在索引中的位置:2
+2021-04-26 15:51:51 16960 [Note] show index from t_trans_order_info_0 where Column_name ='update_datetime' and Seq_in_index =2
+2021-04-26 15:51:51 16960 [Note] 第16步：开始输出表t_trans_order_info_0索引优化建议:
+2021-04-26 15:51:51 16960 [Note] Create_Index_SQL：alter table t_trans_order_info_0 add index idx_bank_card_no_update_datetime(bank_card_no,update_datetime)
+2021-04-26 15:51:51 16960 [Note] 第17步: SQLAdvisor结束!

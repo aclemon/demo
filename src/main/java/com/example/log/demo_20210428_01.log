@@ -1,0 +1,75 @@
+Traceback (most recent call last):
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 706, in urlopen
+chunked=chunked,
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 445, in _make_request
+six.raise_from(e, None)
+File "", line 3, in raise_from
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 440, in _make_request
+httplib_response = conn.getresponse()
+File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 1369, in getresponse
+response.begin()
+File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 310, in begin
+version, status, reason = self._read_status()
+File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 271, in _read_status
+line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+File "/www/server/panel/pyenv/lib/python3.7/socket.py", line 589, in readinto
+return self._sock.recv_into(b)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/gevent/_socketcommon.py", line 688, in recv_into
+return self._sock.recv_into(*args)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+timeout=timeout
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 756, in urlopen
+method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/util/retry.py", line 531, in increment
+raise six.reraise(type(error), error, _stacktrace)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/packages/six.py", line 734, in reraise
+raise value.with_traceback(tb)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 706, in urlopen
+chunked=chunked,
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 445, in _make_request
+six.raise_from(e, None)
+File "", line 3, in raise_from
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 440, in _make_request
+httplib_response = conn.getresponse()
+File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 1369, in getresponse
+response.begin()
+File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 310, in begin
+version, status, reason = self._read_status()
+File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 271, in _read_status
+line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+File "/www/server/panel/pyenv/lib/python3.7/socket.py", line 589, in readinto
+return self._sock.recv_into(b)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/gevent/_socketcommon.py", line 688, in recv_into
+return self._sock.recv_into(*args)
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/api/client.py", line 214, in _retrieve_server_version
+return self.version(api_version=False)["ApiVersion"]
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/api/daemon.py", line 181, in version
+return self._result(self._get(url), json=True)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/utils/decorators.py", line 46, in inner
+return f(self, *args, **kwargs)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/api/client.py", line 237, in _get
+return self.get(url, **self._set_request_timeout(kwargs))
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/sessions.py", line 555, in get
+return self.request('GET', url, **kwargs)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/sessions.py", line 542, in request
+resp = self.send(prep, **send_kwargs)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/sessions.py", line 655, in send
+r = adapter.send(request, **kwargs)
+File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/adapters.py", line 498, in send
+raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionR
+
+<div id="" class="layui-layer-content layui-layer-padding" style="height: 937px;">
+<i class="layui-layer-ico layui-layer-ico2"></i>
+抱歉，出错了：<br> Traceback (most recent call last):<br> File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 706, in urlopen<br>    chunked=chunked,<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 445, in _make_request<br>    six.raise_from(e, None)<br>  File "<string>", line 3, in raise_from<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 440, in _make_request<br>    httplib_response = conn.getresponse()<br>  File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 1369, in getresponse<br>    response.begin()<br>  File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 310, in begin<br>    version, status, reason = self._read_status()<br>  File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 271, in _read_status<br>    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")<br>  File "/www/server/panel/pyenv/lib/python3.7/socket.py", line 589, in readinto<br>    return self._sock.recv_into(b)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/gevent/_socketcommon.py", line 688, in recv_into<br>    return self._sock.recv_into(*args)<br>ConnectionResetError: [Errno 104] Connection reset by peer<br><br>During handling of the above exception, another exception occurred:<br><br>Traceback (most recent call last):<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/adapters.py", line 449, in send<br>    timeout=timeout<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 756, in urlopen<br>    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/util/retry.py", line 531, in increment<br>    raise six.reraise(type(error), error, _stacktrace)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/packages/six.py", line 734, in reraise<br>    raise value.with_traceback(tb)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 706, in urlopen<br>    chunked=chunked,<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 445, in _make_request<br>    six.raise_from(e, None)<br>  File "<string>", line 3, in raise_from<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/urllib3/connectionpool.py", line 440, in _make_request<br>    httplib_response = conn.getresponse()<br>  File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 1369, in getresponse<br>    response.begin()<br>  File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 310, in begin<br>    version, status, reason = self._read_status()<br>  File "/www/server/panel/pyenv/lib/python3.7/http/client.py", line 271, in _read_status<br>    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")<br>  File "/www/server/panel/pyenv/lib/python3.7/socket.py", line 589, in readinto<br>    return self._sock.recv_into(b)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/gevent/_socketcommon.py", line 688, in recv_into<br>    return self._sock.recv_into(*args)<br>urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))<br><br>During handling of the above exception, another exception occurred:<br><br>Traceback (most recent call last):<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/api/client.py", line 214, in _retrieve_server_version<br>    return self.version(api_version=False)["ApiVersion"]<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/api/daemon.py", line 181, in version<br>    return self._result(self._get(url), json=True)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/utils/decorators.py", line 46, in inner<br>    return f(self, *args, **kwargs)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/api/client.py", line 237, in _get<br>    return self.get(url, **self._set_request_timeout(kwargs))<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/sessions.py", line 555, in get<br>    return self.request('GET', url, **kwargs)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/sessions.py", line 542, in request<br>    resp = self.send(prep, **send_kwargs)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/sessions.py", line 655, in send<br>    r = adapter.send(request, **kwargs)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/requests/adapters.py", line 498, in send<br>    raise ConnectionError(err, request=request)<br>requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))<br><br>During handling of the above exception, another exception occurred:<br><br>Traceback (most recent call last):<br>  File "class/panelPlugin.py", line 1948, in a<br>    return eval(execStr)<br>  File "<string>", line 1, in <module><br>  File "plugin/docker/docker_main.py", line 674, in service_admin<br>    self.__docker = docker.from_env()<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/client.py", line 101, in from_env<br>    **kwargs_from_env(**kwargs)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/client.py", line 45, in __init__<br>    self.api = APIClient(*args, **kwargs)<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/api/client.py", line 197, in __init__<br>    self._version = self._retrieve_server_version()<br>  File "/www/server/panel/pyenv/lib/python3.7/site-packages/docker/api/client.py", line 222, in _retrieve_server_version<br>    'Error while fetching server API version: {0}'.format(e)<br>docker.errors.DockerException: Error while fetching server API version: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))<br> </module></string></string></string></div>

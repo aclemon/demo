@@ -1,11 +1,33 @@
-nacos:
-  config:
-    auto-refresh: true
-    data-id: gradle_demo.yaml
-    password: nacos
-    username: nacos
-    server-addr: 34.92.200.232:8848
+#实体扫描
+#Mybatis-plus:
+#  typeAliasesPackage: com.xxx.project.biz.*.entity,com.xxx.project.biz.*.*.entity
+
+#nacos:
+#  config:
+#    auto-refresh: true
+#    data-id: gradle_demo.yaml
+#    password: nacos
+#    username: nacos
+#    server-addr: 120.24.55.36:8848
+
+mybatis-plus:
+  configuration:
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      db-type: MYSQL
+      field-strategy: NOT_EMPTY
+      id-type: auto
+  mapper-locations: classpath:mapper/*.xml
+
 spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://120.24.36.55:3306/rbac?serverTimezone=UTC&characterEncoding=utf-8&useSSL=false
+    username: root
   # 引擎模板配置
   thymeleaf:
     cache: false # 关闭缓存
