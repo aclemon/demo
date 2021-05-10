@@ -154,9 +154,9 @@ public class ForJoinPollTask {
  */
 class SumTask extends RecursiveTask<Integer> {
     private static final int THRESHOLD = 20; //每个小任务 最多只累加20个数
-    private int arry[];
-    private int start;
-    private int end;
+    private final int[] arry;
+    private final int start;
+    private final int end;
 
 
     /**

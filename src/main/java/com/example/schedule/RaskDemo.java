@@ -17,8 +17,8 @@ public class RaskDemo extends RecursiveAction {
      */
     private static final int MAX = 20;
 
-    private int start;
-    private int end;
+    private final int start;
+    private final int end;
 
     public RaskDemo(int start, int end) {
         this.start = start;
