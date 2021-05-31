@@ -52,11 +52,6 @@ public class TestHUTOOL {
         testSS(strings);
 
 
-        Long aa = 1L;
-
-        boolean bb = aa == 1L;
-        Console.log("=>" + bb);
-        Console.log("strings=>" + strings);
 //        testStr2();
 //        testSub();
 //        testInt();
@@ -85,7 +80,6 @@ public class TestHUTOOL {
     }
 
     private static void testSS(ArrayList test) {
-//        test.add("asdf");
         ArrayList<String> strings = new ArrayList<>();
         strings.add("ssss");
         test = strings;

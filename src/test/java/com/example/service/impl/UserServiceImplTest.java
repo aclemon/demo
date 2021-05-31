@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.dao.UserDao;
 import com.example.entity.User;
 import com.example.service.UserService;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 /**
  * @Author: w00990
@@ -30,6 +32,9 @@ import java.util.concurrent.TimeUnit;
 class UserServiceImplTest {
     @Resource
     private UserService userService;
+
+    @Resource
+    private UserDao userDao;
 
 
     @Resource
@@ -213,6 +218,28 @@ class UserServiceImplTest {
         Page<User> page = new Page<>(1, 3);
         IPage<User> page1 = userService.page(page, userLambdaQueryWrapper);
         Console.log("list=>" + page1.getRecords());
+    }
+
+    @Test
+    public void testGetOne() {
+        User user = new User();
+        user.setUsername("asdfasdf");
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>(user);
+        userLambdaQueryWrapper.select(User::getId);
+//        QueryWrapper<Object> wrapper = new QueryWrapper<>();
+//        userLambdaQueryWrapper.last("limit 1");
+        Function<Object, Integer> name = e -> 1;
+//        Integer integer = userDao.selectCount(userLambdaQueryWrapper);
+        Object pp = userService.getObj(userLambdaQueryWrapper, (p) -> {
+            Console.log(p, "pp");
+            return p;
+        });
+        Console.log(pp, "ojb");
+        int count = userService.count(userLambdaQueryWrapper);
+        Console.log(count, "count");
+        User one = userService.getOne(userLambdaQueryWrapper, false);
+//        User user1 = userDao.selectOne(new LambdaQueryWrapper<>(user));
+        Console.log("=>" + one);
     }
 
 

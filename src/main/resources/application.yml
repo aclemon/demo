@@ -2,6 +2,14 @@
 #Mybatis-plus:
 #  typeAliasesPackage: com.xxx.project.biz.*.entity,com.xxx.project.biz.*.*.entity
 
+#nacos:
+#  config:
+#    auto-refresh: true
+#    data-id: gradle_demo.yaml
+#    password: nacos
+#    username: nacos
+#    server-addr: 120.24.36.55:8848
+
 
 mybatis-plus:
   configuration:
@@ -15,13 +23,7 @@ mybatis-plus:
       id-type: auto
   mapper-locations: classpath:mapper/*.xml
 
-#nacos:
-#  config:
-#    auto-refresh: true
-#    data-id: gradle_demo.yaml
-#    password: nacos
-#    username: nacos
-#    server-addr: 120.24.36.55:8848
+
 
 rocketmq:
   name-server: 120.24.36.55:9876
@@ -55,8 +57,8 @@ spring:
       enabled: true
   freemarker:
     checkTemplateLocation: false
-#    redis快照关闭了导致不能持久化的问题
-#  stop-writes-on-bgsave-error no
+  #    redis快照关闭了导致不能持久化的问题
+  #  stop-writes-on-bgsave-error no
   redis:
     database: 0
     password: 987654321

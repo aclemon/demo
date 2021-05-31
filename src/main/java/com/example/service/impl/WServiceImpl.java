@@ -4,7 +4,7 @@ import cn.hutool.core.util.ReflectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.aop.Condition;
+import com.example.annotation.Condition;
 import com.example.service.WService;
 import org.springframework.transaction.annotation.Transactional;
 

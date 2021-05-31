@@ -5,7 +5,7 @@ import cn.hutool.core.util.ReflectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Assert;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.aop.Condition;
+import com.example.annotation.Condition;
 import com.example.dao.CardValidateResultDao;
 import com.example.entity.CardValidateResult;
 import com.example.service.CardValidateResultService;
